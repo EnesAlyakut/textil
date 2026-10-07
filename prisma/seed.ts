@@ -1384,7 +1384,7 @@ async function main() {
 
   for (const [i, key] of sectionOrder.entries()) {
     const data = homepage[key] as unknown as Prisma.InputJsonValue;
-    await db.homepageSection.upsert({ where: { key }, update: { data, sortOrder: i }, create: { key, data, sortOrder: i } });
+    await db.homepageSection.upsert({ where: { key }, update: {}, create: { key, data, sortOrder: i } });
   }
 
   await db.setting.upsert({

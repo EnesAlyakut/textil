@@ -1,7 +1,8 @@
 /**
  * Stores every media file in the database (MediaAsset.data):
  *  - brand-media/**      → url /media/...   (source "brand")
- *  - storage/uploads/**  → url /uploads/... (legacy disk uploads, source "upload")
+ *  - brand-source/**     → url /media/brand-source/... and /brand-source/... (source "brand")
+ *  - storage/uploads/**  → url /uploads/... (disk uploads, source "upload")
  * Idempotent: re-running updates existing rows. Run: npm run media:import
  */
 import fs from "node:fs/promises";
@@ -39,42 +40,52 @@ async function* walk(dir: string): AsyncGenerator<string> {
   }
 }
 
-async function importDir(dir: string, prefix: "/media" | "/uploads", source: "brand" | "upload") {
+async function importDir(dir: string, prefix: string, source: "brand" | "upload", createAliases?: (rel: string) => string[]) {
   let n = 0;
   for await (const file of walk(dir)) {
-    const mimeType = TYPES[path.extname(file).toLowerCase()];
+    const ext = path.extname(file).toLowerCase();
+    const mimeType = TYPES[ext];
     if (!mimeType) continue;
     const rel = path.relative(dir, file).split(path.sep).join("/");
-    const url = `${prefix}/${rel}`;
+    const primaryUrl = `${prefix}/${rel}`;
     const data = await fs.readFile(file);
 
     let width = 0;
     let height = 0;
     let blurDataUrl: string | null = null;
     const known = (manifest as Record<string, { src: string; width: number; height: number; blur: string }>)[rel.replace(/\.jpg$/, "")];
-    if (known && known.src === url) {
+    if (known && known.src === primaryUrl) {
       ({ width, height } = known);
       blurDataUrl = known.blur;
     } else if (mimeType.startsWith("image/") && mimeType !== "image/svg+xml") {
-      const meta = await sharp(data).metadata();
-      width = meta.width ?? 0;
-      height = meta.height ?? 0;
-      const tiny = await sharp(data).resize(16, 16, { fit: "inside" }).jpeg({ quality: 60 }).toBuffer();
-      blurDataUrl = `data:image/jpeg;base64,${tiny.toString("base64")}`;
+      try {
+        const meta = await sharp(data).metadata();
+        width = meta.width ?? 0;
+        height = meta.height ?? 0;
+        const tiny = await sharp(data).resize(16, 16, { fit: "inside" }).jpeg({ quality: 60 }).toBuffer();
+        blurDataUrl = `data:image/jpeg;base64,${tiny.toString("base64")}`;
+      } catch (err) {
+        console.warn(`Could not process metadata for ${rel}:`, (err as Error).message);
+      }
     }
 
     const row = { filename: path.basename(file), mimeType, source, width, height, size: data.length, blurDataUrl, data };
-    await db.mediaAsset.upsert({ where: { url }, update: row, create: { url, ...row } });
+    await db.mediaAsset.upsert({ where: { url: primaryUrl }, update: row, create: { url: primaryUrl, ...row } });
     n++;
-  }
-  return n;
-}
 
 async function main() {
+  console.log("Importing media to PostgreSQL database...");
   const brand = await importDir(path.join(ROOT, "brand-media"), "/media", "brand");
+  const brandSource = await importDir(
+    path.join(ROOT, "brand-source"),
+    "/media/brand-source",
+    "brand"
+  );
   const uploads = await importDir(path.join(ROOT, process.env.UPLOAD_DIR || "storage/uploads"), "/uploads", "upload");
   const total = await db.mediaAsset.aggregate({ _count: true, _sum: { size: true } });
-  console.log(`Imported ${brand} brand files, ${uploads} legacy uploads. Database now holds ${total._count} files (${((total._sum.size ?? 0) / 1024 / 1024).toFixed(1)} MB).`);
+  console.log(
+    `Imported ${brand} brand-media files, ${brandSource} brand-source files, ${uploads} uploads. Database now holds ${total._count} records (${((total._sum.size ?? 0) / 1024 / 1024).toFixed(1)} MB).`
+  );
 }
 
 main()

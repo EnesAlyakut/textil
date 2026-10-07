@@ -108,7 +108,11 @@ export async function serveMedia(url: string, request: Request) {
 
     // 1. Check local disk first (50-100x faster than Postgres binary select)
     let diskPath: string | null = null;
-    if (url.startsWith("/media/")) {
+    if (url.startsWith("/media/brand-source/")) {
+      diskPath = path.join(process.cwd(), "brand-source", url.slice(20));
+    } else if (url.startsWith("/brand-source/")) {
+      diskPath = path.join(process.cwd(), "brand-source", url.slice(14));
+    } else if (url.startsWith("/media/")) {
       diskPath = path.join(process.cwd(), "brand-media", url.slice(7));
     } else if (url.startsWith("/uploads/")) {
       diskPath = path.join(process.cwd(), "storage", "uploads", url.slice(9));
@@ -127,7 +131,10 @@ export async function serveMedia(url: string, request: Request) {
 
     // 2. Fall back to database if not on disk
     if (!bytes) {
-      const asset = await db.mediaAsset.findUnique({ where: { url }, select: { data: true, mimeType: true } });
+      let asset = await db.mediaAsset.findUnique({ where: { url }, select: { data: true, mimeType: true } });
+      if (!asset && url.startsWith("/brand-source/")) {
+        asset = await db.mediaAsset.findUnique({ where: { url: `/media${url}` }, select: { data: true, mimeType: true } });
+      }
       if (asset?.data) {
         bytes = new Uint8Array(asset.data);
         mimeType = asset.mimeType;

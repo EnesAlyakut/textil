@@ -23,5 +23,24 @@ dump.on("close", (code) => {
     console.error("Backup failed (is the yeg-postgres container running?)");
     process.exit(code ?? 1);
   }
+  const latest = path.join(ROOT, "database", "yeg-latest.dump");
+  fs.mkdirSync(path.dirname(latest), { recursive: true });
+  fs.copyFileSync(file, latest);
   console.log(`Backup written: ${path.relative(ROOT, file)} (${(fs.statSync(file).size / 1024 / 1024).toFixed(1)} MB)`);
+
+  // Split into chunks if > 95MB for GitHub compliance
+  const CHUNK_SIZE = 70 * 1024 * 1024;
+  if (fs.statSync(latest).size > 95 * 1024 * 1024) {
+    const buf = fs.readFileSync(latest);
+    let idx = 1;
+    let off = 0;
+    while (off < buf.length) {
+      const chunk = buf.subarray(off, off + CHUNK_SIZE);
+      const partName = `yeg-latest.dump.part${String(idx).padStart(2, "0")}`;
+      fs.writeFileSync(path.join(path.dirname(latest), partName), chunk);
+      off += CHUNK_SIZE;
+      idx++;
+    }
+    console.log(`Split into ${idx - 1} chunks for GitHub push.`);
+  }
 });

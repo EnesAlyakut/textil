@@ -42,12 +42,14 @@ yarn-error.log*
 next-env.d.ts
 
 # brand package originals (large) & runtime uploads
-# /brand-source
-/storage
+/storage/*
+!/storage/uploads
 
 
 # database backups
 /backups
+database/*.dump
+!database/*.dump.part*
 
 # local tools
 /.tools
