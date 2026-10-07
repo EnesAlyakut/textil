@@ -19,6 +19,7 @@
     "db:pages": "tsx scripts/sync-pages-to-db.ts",
     "db:fr": "tsx scripts/apply-fr.ts",
     "db:backup": "node scripts/db-backup.mjs",
+    "db:restore": "node scripts/db-restore.mjs",
     "db:check": "tsx scripts/check-db.ts",
     "tunnel": ".tools\\cloudflared.exe tunnel --url http://localhost:3000"
   },

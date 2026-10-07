@@ -8,7 +8,7 @@ Next.js 16 (App Router, Turbopack) · React 19 · Tailwind CSS 4 · GSAP ScrollT
 ```bash
 npm install
 npm run db:up        # docker compose ile PostgreSQL 17 (localhost:5433)
-npm run db:setup     # şema + örnek içerik + tüm görsellerin veritabanına aktarımı
+npm run db:restore   # TÜM görselleri, ürünleri ve tasarımı içeren en güncel veritabanını geri yükler
 npm run dev
 ```
 
