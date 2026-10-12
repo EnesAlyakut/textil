@@ -2,7 +2,7 @@
 
 import { Prisma } from "@prisma/client";
 import { redirect } from "next/navigation";
-import { bool, int, json, optStr, revalidateSite, str, type ActionState } from "@/lib/admin";
+import { bool, int, json, optStr, revalidateSite, str, type ActionState, formI18n } from "@/lib/admin";
 import { requireAdmin } from "@/lib/auth";
 import type { ImageRef, LookbookImage } from "@/lib/content-types";
 import { db } from "@/lib/db";
@@ -11,14 +11,14 @@ import { slugify } from "@/lib/utils";
 export async function saveCollection(id: string | null, _prev: ActionState, fd: FormData): Promise<ActionState> {
   await requireAdmin();
   const slug = slugify(str(fd, "slug") || str(fd, "nameEn"));
-  if (!str(fd, "nameEn") || !str(fd, "nameTr")) return { error: "Koleksiyon adı (EN ve TR) zorunludur." };
+  if (!str(fd, "nameEn")) return { error: "Koleksiyon adı (EN) zorunludur." };
   const cover = json<ImageRef | null>(fd, "cover", null);
   const productIds = json<string[]>(fd, "productIds", []);
 
   const data = {
     slug,
     nameEn: str(fd, "nameEn"),
-    nameTr: str(fd, "nameTr"),
+    nameTr: str(fd, "nameTr") || str(fd, "nameEn"),
     nameFr: optStr(fd, "nameFr"),
     seasonEn: optStr(fd, "seasonEn"),
     seasonTr: optStr(fd, "seasonTr"),
@@ -44,6 +44,7 @@ export async function saveCollection(id: string | null, _prev: ActionState, fd: 
     seoDescriptionTr: optStr(fd, "seoDescriptionTr"),
     seoTitleFr: optStr(fd, "seoTitleFr"),
     seoDescriptionFr: optStr(fd, "seoDescriptionFr"),
+    i18n: formI18n(fd),
   };
 
   let rowId = id;

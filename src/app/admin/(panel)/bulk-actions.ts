@@ -16,7 +16,7 @@ const duplicate = (e: unknown) => e instanceof Prisma.PrismaClientKnownRequestEr
 
 const collectionRow = z.object({
   id: z.string(),
-  nameTr: z.string().trim().min(1),
+  nameTr: z.string().trim(),
   nameEn: z.string().trim().min(1),
   seasonTr: z.string().trim(),
   seasonEn: z.string().trim(),
@@ -30,7 +30,7 @@ export type CollectionRow = z.infer<typeof collectionRow>;
 export async function bulkUpdateCollections(rows: CollectionRow[]): Promise<Result> {
   await requireAdmin();
   const parsed = z.array(collectionRow).safeParse(rows);
-  if (!parsed.success) return { ok: false, error: "Ad (TR/EN) ve slug boş olamaz." };
+  if (!parsed.success) return { ok: false, error: "İngilizce ad ve slug boş olamaz." };
   try {
     await db.$transaction(
       parsed.data.map(({ id, slug, seasonTr, seasonEn, ...data }) =>
@@ -50,9 +50,11 @@ export async function bulkUpdateCollections(rows: CollectionRow[]): Promise<Resu
 
 const taxonomyRow = z.object({
   id: z.string(),
-  nameTr: z.string().trim().min(1),
+  nameTr: z.string().trim(),
   nameEn: z.string().trim().min(1),
   nameFr: z.string().trim().nullable(),
+  nameEs: z.string().trim().nullable(),
+  nameRu: z.string().trim().nullable(),
   slug: z.string().trim().min(1),
   sortOrder: z.number().int(),
 });
@@ -61,14 +63,15 @@ export type TaxonomyRow = z.infer<typeof taxonomyRow>;
 export async function bulkUpdateTaxonomy(kind: "category" | "blogCategory", rows: TaxonomyRow[]): Promise<Result> {
   await requireAdmin();
   const parsed = z.array(taxonomyRow).safeParse(rows);
-  if (!parsed.success) return { ok: false, error: "Ad (TR/EN) ve slug boş olamaz." };
+  if (!parsed.success) return { ok: false, error: "İngilizce ad ve slug boş olamaz." };
   try {
     await db.$transaction(
-      parsed.data.map(({ id, slug, nameFr, ...data }) =>
-        kind === "category"
-          ? db.category.update({ where: { id }, data: { ...data, nameFr: nameFr || null, slug: slugify(slug) } })
-          : db.blogCategory.update({ where: { id }, data: { ...data, nameFr: nameFr || null, slug: slugify(slug) } }),
-      ),
+      parsed.data.map(({ id, slug, nameFr, nameEs, nameRu, ...data }) => {
+        // Spanish / Russian names live in the row's i18n column
+        const i18n = { es: nameEs ? { name: nameEs } : {}, ru: nameRu ? { name: nameRu } : {} };
+        const row = { ...data, nameTr: data.nameTr || data.nameEn, nameFr: nameFr || null, slug: slugify(slug), i18n };
+        return kind === "category" ? db.category.update({ where: { id }, data: row }) : db.blogCategory.update({ where: { id }, data: row });
+      }),
     );
   } catch (e) {
     if (duplicate(e)) return { ok: false, error: "Aynı slug birden fazla kayıtta kullanılamaz." };
@@ -83,7 +86,7 @@ export async function bulkUpdateTaxonomy(kind: "category" | "blogCategory", rows
 
 const postRow = z.object({
   id: z.string(),
-  titleTr: z.string().trim().min(1),
+  titleTr: z.string().trim(),
   titleEn: z.string().trim().min(1),
   categoryId: z.string().nullable(),
   publishedAt: z.string().min(10),
@@ -95,7 +98,7 @@ export type PostRow = z.infer<typeof postRow>;
 export async function bulkUpdatePosts(rows: PostRow[]): Promise<Result> {
   await requireAdmin();
   const parsed = z.array(postRow).safeParse(rows);
-  if (!parsed.success) return { ok: false, error: "Başlık (TR/EN) ve tarih boş olamaz." };
+  if (!parsed.success) return { ok: false, error: "Başlık ve tarih boş olamaz." };
   await db.$transaction(
     parsed.data.map(({ id, publishedAt, ...data }) => db.blog.update({ where: { id }, data: { ...data, publishedAt: new Date(publishedAt) } })),
   );

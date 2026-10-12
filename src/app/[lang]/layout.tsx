@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
       siteName: "YEG Textile",
       title: dict.meta.title,
       description: dict.meta.description,
-      locale: lang === "tr" ? "tr_TR" : lang === "fr" ? "fr_FR" : "en_US",
+      locale: { en: "en_US", es: "es_ES", ru: "ru_RU", fr: "fr_FR" }[lang],
       images: [
         {
           url: ogImage,

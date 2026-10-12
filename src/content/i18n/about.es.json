@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "title": "Nosotros",
+    "description": "YEG Textile es una empresa textil con sede en Türkiye que hoy une la experiencia adquirida en las distintas etapas de la producción textil con el desarrollo de producto, la fabricación y las alianzas internacionales."
+  },
+  "hero": {
+    "eyebrow": "YEG Textile — Denizli · Estambul · Florida · Vancouver",
+    "title": "Nosotros",
+    "imageAlt": "Imagen de campaña de YEG Textile"
+  },
+  "who": {
+    "title": ["Una empresa que ", "conoce la producción"],
+    "lead": "YEG Textile es una empresa textil con sede en Türkiye que hoy une la experiencia adquirida en las distintas etapas de la producción textil con el desarrollo de producto, la fabricación y las alianzas internacionales.",
+    "start": "Nuestra historia se remonta a *2012*. Tras estudiar Comercio Internacional, empezamos a trabajar en el taller familiar. No entramos en el negocio desde detrás de un escritorio, sino desde dentro de la producción. Corte, costura, control de calidad, envíos… Aprendimos cómo se hace el trabajo en la planta.",
+    "founded": "En *2016* fundamos YEG Textile.",
+    "paragraphs": [
+      "Nuestra primera exportación fue a Francia, con ropa infantil. Después conocimos otros grupos de producto, otros países y otras expectativas. Cada proyecto nos dejó una nueva experiencia, tanto en la producción como en nuestra forma de trabajar.",
+      "Hoy, YEG Textile ya no es una empresa que solo cubre las necesidades de una marca en la fase de producción. Trabajamos como un socio presente en todo el proceso: desde la idea de un producto hasta su muestra, desde su tejido hasta su fabricación."
+    ]
+  },
+  "story": {
+    "title": ["Una experiencia que nace ", "dentro de la producción"],
+    "intro": "Para entender el YEG de hoy, basta con mirar nuestro punto de partida.",
+    "steps": [
+      "Estar dentro de la producción nos enseñó que el textil no es solo tejido, patrones y máquinas. Que un producto salga a tiempo, encontrar el tejido adecuado, que una muestra cumpla las expectativas, comunicar a tiempo un problema de producción… Todo forma parte del mismo trabajo.",
+      "Tras nuestra primera exportación, a medida que llegaban pedidos de distintos mercados, ampliamos nuestras capacidades de producción.",
+      "Cuando llegaba un pedido, nunca lo vimos solo como una cantidad a producir. Intentamos entender dónde se usaría, qué tipo de producto se esperaba, a qué mercado iba y a qué había que prestar atención durante la producción.",
+      "La cultura de producción que YEG Textile tiene hoy se formó en gran parte con la experiencia de aquellos años."
+    ],
+    "emphasis": "Mientras hacíamos crecer el negocio, seguimos aprendiendo primero *el oficio en sí*."
+  },
+  "brand": {
+    "title": ["Una postura de marca ", "detrás de la producción"],
+    "intro": [
+      "La estructura empresarial de YEG Textile y su enfoque de marca no son dos temas separados.",
+      "La importancia que damos a la calidad, el conocimiento técnico y la fiabilidad en la producción también define cómo creemos que debe verse la marca."
+    ],
+    "crowd": "Hoy el mundo de la moda tiene muchísimas marcas. Demasiados productos, demasiada comunicación, demasiada uniformidad…",
+    "selective": "YEG, en cambio, aspira a ocupar un lugar más selectivo dentro de esa multitud.",
+    "slogan": ["YEG Textile — ", "No es para *todos.*"],
+    "audience": [
+      "Ese «todos» no es un público al que llegar; describe la mirada de la persona a la que YEG se dirige.",
+      "Personas que eligen un producto no solo porque lo compraron, sino porque crearon un vínculo con él."
+    ],
+    "ownLine": "Quienes tienen una línea propia.",
+    "stance": ["No es una compra: ", "*es una postura*"],
+    "outro": "Esta mirada está pensada para mostrarse en todos los puntos de contacto de la marca: desde el universo visual de YEG hasta sus elecciones de producto y su lenguaje de comunicación."
+  },
+  "identity": {
+    "title": ["Una postura necesita ", "un reflejo visual"],
+    "intro": "No queremos nada innecesario en el universo de marca de YEG.",
+    "aim": "El objetivo no es usarlo todo a la vez para llamar la atención.",
+    "opposite": "Todo lo contrario: saber qué no usar.",
+    "palette": ["Negro", "Blanco hueso", "Rojo", "Verde amarillo ácido"],
+    "colors": "Un uso controlado del color —negro, blanco hueso, rojo y verde amarillo ácido— junto con una tipografía potente y una estructura gráfica sencilla permite a la marca construir un carácter más duro y definido.",
+    "surfaces": "Este enfoque busca mantener la misma línea en todas las superficies que toca la marca: del packaging a las tarjetas de visita, de la comunicación digital a las etiquetas de producto.",
+    "places": ["En la calle. ", "*De noche.* ", "En interiores."],
+    "outro": "Allí donde se encuentre, el lenguaje de YEG debe hacerse reconocible.",
+    "slogan": ["Sin adornos. ", "Solo el *nombre.*"],
+    "imageAlt": "Fotograma de campaña de YEG Textile, de noche en la calle"
+  },
+  "company": {
+    "title": ["Detrás de la marca, ", "una sólida estructura productiva"],
+    "intro": "Cualquier postura que mantengamos en la marca necesita su equivalente en la producción.",
+    "paragraphs": [
+      "Fabricamos denim, punto jersey, tricot y tejido plano, adaptándonos a las necesidades de colección de marcas de todos los tamaños.",
+      "Del desarrollo de muestras a la búsqueda de tejidos, de la planificación de la producción al control de calidad y el envío, gestionamos juntas las distintas etapas del proceso."
+    ],
+    "before": [
+      "Tomar el diseño de un cliente y producirlo es, por supuesto, parte del trabajo.",
+      "Pero la mayoría de las veces, el proceso empieza antes."
+    ],
+    "questions": [
+      "¿Aguanta esto el tejido?",
+      "¿Cómo quedará este lavado?",
+      "¿Se puede fabricar este producto a este coste?",
+      "¿Cómo podemos sacar la muestra más rápido?",
+      "¿Cómo conseguimos el mismo resultado en producción?"
+    ],
+    "strength": "Aquí empieza la fuerza de YEG Textile.",
+    "outro": "Nuestro enfoque de I+D y desarrollo de producto se construye, en parte, en torno a estas preguntas."
+  },
+  "capacity": {
+    "title": ["Capacidad de producción mensual de YEG TEXTILE ", "por grupo de producto:"],
+    "unit": "unidades",
+    "stats": [
+      { "value": "30.000", "label": "Camisetas" },
+      { "value": "15.000", "label": "Camisas y productos de tejido plano" },
+      { "value": "10.000", "label": "Sudaderas con y sin capucha" },
+      { "value": "10.000", "label": "Pantalones y chaquetas denim" },
+      { "value": "10.000", "label": "Tricot" }
+    ],
+    "paragraphs": [
+      "Detrás de estas cifras hay mucho más que una línea de producción.",
+      "La planificación, el aprovisionamiento, las muestras, el control de calidad, el seguimiento de la producción y el envío tienen que avanzar coordinados.",
+      "Sabemos que, sobre todo en pedidos de gran volumen, un pequeño contratiempo puede afectar a todo el calendario."
+    ],
+    "emphasis": "Por eso, lo que consideramos tan importante como la capacidad es saber usarla *en el momento adecuado* y *con la organización adecuada.*"
+  },
+  "areas": {
+    "title": ["Productos distintos, ", "una sola disciplina de producción"],
+    "items": [
+      { "name": "DENIM", "lines": ["Pantalones, chaquetas y shorts.", "Acabados vintage, dirty wash y eco wash."] },
+      { "name": "PUNTO", "lines": ["Camisetas, sudaderas y sudaderas con capucha.", "Producción en jersey, felpa e interlock para distintas necesidades de producto y gramaje."] },
+      { "name": "TRICOT", "lines": ["Capacidad de producción en galga fina y gruesa.", "Jerséis, cárdigans y otros productos de tricot."] },
+      { "name": "TEJIDO PLANO", "lines": ["Camisas y prendas de abrigo de tejido plano."] }
+    ],
+    "outro": "Trabajar con distintos grupos de producto no solo nos da un alcance de producción más amplio. También nos permite valorar juntos distintos tejidos, técnicas y necesidades de producción."
+  },
+  "quality": {
+    "title": ["La calidad no empieza ", "en el control final"],
+    "paragraphs": [
+      "En lugar de descubrir al final de la producción si un producto es bueno, intentamos mantenerlo bajo control desde el principio.",
+      "Los controles se realizan en distintas etapas: de la elección del tejido a la muestra, del corte a la costura, del lavado al embalaje."
+    ],
+    "purpose": "El objetivo de este sistema no es solo encontrar errores. *Es detectarlos lo antes posible.*",
+    "certsIntro": "Los sistemas de gestión y las certificaciones de YEG Textile respaldan esta forma de trabajar:",
+    "certs": [
+      { "code": "ISO 10002:2018", "label": "Sistema de gestión de la satisfacción del cliente" },
+      { "code": "ISO 22716:2013", "label": "GMP – Buenas prácticas de fabricación" },
+      { "code": "ISO 9001:2015", "label": "Sistema de gestión de la calidad" },
+      { "code": "ISO 14001:2015", "label": "Sistema de gestión ambiental" },
+      { "code": "ISO 45001:2018", "label": "Sistema de gestión de la seguridad y salud en el trabajo" },
+      { "code": "ETKO Scope", "label": "Certificación de textil orgánico" },
+      { "code": "ETKO Scope", "label": "Certificación GRS, OCS, RCS" },
+      { "code": "SMETA", "label": "Informe de auditoría de comercio ético de miembros de Sedex" },
+      { "code": "OEKO-TEX®", "label": "STANDARD 100 – Producto textil de clase 1" }
+    ],
+    "outro": "Además, trabajamos en opciones de tejidos orgánicos y reciclados y en técnicas de lavado ecológicas."
+  },
+  "conduct": {
+    "title": ["Mantener ", "nuestra palabra"],
+    "lead": "En la producción, la confianza no nace con el primer pedido; se construye a lo largo del proceso.",
+    "paragraphs": [
+      "En YEG Textile valoramos la comunicación abierta con nuestros clientes y un entorno de trabajo en el que los problemas se resuelven juntos.",
+      "Porque lo que se busca en un socio con quien trabajar durante años no es solo una buena producción."
+    ],
+    "emphasis": "También hace falta un equipo que sepa *qué decir y cuándo.*",
+    "easy": "Es fácil decir que todo saldrá perfecto.",
+    "matters": "Lo que de verdad importa es qué haces cuando surge un problema.",
+    "commitments": [
+      "Avisar cuando una muestra no esté lista a tiempo.",
+      "No ocultar un problema de producción.",
+      "Ser realistas con los plazos.",
+      "Cuando algo cambia, comunicarlo al cliente lo antes posible, no en el último momento."
+    ],
+    "honesty": "Para nosotros, la honestidad empieza, en parte, justo aquí."
+  },
+  "global": {
+    "title": ["De Türkiye ", "al mundo"],
+    "intro": ["El centro de producción de YEG Textile está en Türkiye.", "Pero nuestro ámbito de trabajo no se limita a Türkiye."],
+    "milestones": [
+      "En *2022* reforzamos nuestra estructura en Estambul, ampliando nuestro acceso a una red de suministro y una infraestructura técnica más grandes.",
+      "En *2026* fundamos GLOBAL YEG LLC en el estado de Florida, Estados Unidos."
+    ],
+    "today": "Hoy, con nuestras distintas sedes operativas, construimos una forma de trabajar que nos acerca a nuestros clientes.",
+    "locations": [
+      { "city": "Denizli", "country": "Türkiye", "role": "Producción y operaciones principales", "lang": "es", "address": "Zafer Mh. 6/2487 Sk. No:29, Merkezefendi / Denizli / Türkiye" },
+      { "city": "Estambul", "country": "Türkiye", "role": "Producción y red de suministro", "lang": "es", "address": "Uğur Mumcu Mah. 2347 Sok. No:9/A, Sultangazi / İstanbul / Türkiye" },
+      { "city": "Florida", "country": "EE. UU.", "role": "Estructura comercial internacional", "lang": "es", "address": "7901 4th St N Ste 300, St. Petersburg, FL 33702 / USA" },
+      { "city": "Vancouver", "country": "Canadá", "role": "Operaciones internacionales", "lang": "es", "address": "33 Commercial Dr, Vancouver, BC V5L 0A2 / Canada" }
+    ],
+    "outro": "Seguimos haciendo crecer nuestra fuerza productiva en Türkiye junto con nuestra presencia comercial en distintos mercados."
+  },
+  "future": {
+    "title": ["Antes de producir más, ", "producir *mejor*"],
+    "paragraphs": [
+      "Ante YEG Textile se abren un mercado en crecimiento y una estructura que seguimos desarrollando.",
+      "A medida que aumentamos nuestra capacidad de producción, queremos reforzar el desarrollo de producto, incorporar nuevas tecnologías a nuestros procesos, ampliar nuestra red de suministro y hacer más eficaces nuestras operaciones internacionales."
+    ],
+    "grow": "No lo hacemos para crecer rápido, sino para *crecer bien.*",
+    "measure": "Porque, para nosotros, ser una buena empresa no se mide solo por producir más.",
+    "goals": [
+      "Desarrollar mejores productos.",
+      "Construir procesos más sanos.",
+      "Facilitar el trabajo de nuestros clientes.",
+      "Y, dentro de muchos años, seguir trabajando juntos con la misma confianza."
+    ],
+    "final": ["Ese es nuestro verdadero ", "*objetivo.*"]
+  },
+  "capabilities": ["Diseño", "Patronaje", "Muestras", "Producción", "Control de calidad", "Marca blanca"],
+  "ctaTitle": "Trabaja con nosotros",
+  "ctaText": "De una sola colección a una temporada completa, podemos llevar tu colección de la idea a la entrega.",
+  "cta": "Contactar con el estudio"
+}

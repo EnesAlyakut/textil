@@ -83,7 +83,14 @@ export type StorySection = {
   steps: StoryStep[];
 };
 
-export type CollectionsSection = { titleEn: string; titleTr: string; titleFr?: string; collectionSlugs: string[] };
+export type CollectionsSection = {
+  titleEn: string;
+  titleTr: string;
+  titleFr?: string;
+  collectionSlugs: string[];
+  /** Homepage-only cover per collection slug; falls back to the collection's own cover */
+  covers?: Record<string, ImageRef | null>;
+};
 
 export type BannerSection = {
   image: ImageRef;
@@ -153,6 +160,9 @@ export type ContactSettings = {
   addressTr: string;
   addressFr?: string;
   instagram: string;
+  /** Full profile URLs; empty hides the link */
+  linkedin?: string;
+  facebook?: string;
   mapUrl?: string;
 };
 
@@ -161,4 +171,4 @@ export type GeneralSettings = {
   showPrices: boolean;
 };
 
-export type SpecRow = { labelEn: string; labelTr: string; labelFr?: string; valueEn: string; valueTr: string; valueFr?: string };
+export type SpecRow = { labelEn: string; labelTr: string; labelFr?: string; labelEs?: string; labelRu?: string; valueEn: string; valueTr: string; valueFr?: string; valueEs?: string; valueRu?: string };

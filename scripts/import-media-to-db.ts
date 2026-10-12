@@ -72,6 +72,12 @@ async function importDir(dir: string, prefix: string, source: "brand" | "upload"
     const row = { filename: path.basename(file), mimeType, source, width, height, size: data.length, blurDataUrl, data };
     await db.mediaAsset.upsert({ where: { url: primaryUrl }, update: row, create: { url: primaryUrl, ...row } });
     n++;
+    for (const alias of createAliases?.(rel) ?? []) {
+      await db.mediaAsset.upsert({ where: { url: alias }, update: row, create: { url: alias, ...row } });
+    }
+  }
+  return n;
+}
 
 async function main() {
   console.log("Importing media to PostgreSQL database...");

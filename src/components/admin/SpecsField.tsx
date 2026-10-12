@@ -5,10 +5,12 @@ import type { SpecRow } from "@/lib/content-types";
 
 const COLUMNS: { key: keyof SpecRow; head: string; placeholder: string }[] = [
   { key: "labelEn", head: "Başlık (EN)", placeholder: "Fit" },
-  { key: "labelTr", head: "Başlık (TR)", placeholder: "Kalıp" },
+  { key: "labelEs", head: "Başlık (ES)", placeholder: "Corte" },
+  { key: "labelRu", head: "Başlık (RU)", placeholder: "Крой" },
   { key: "labelFr", head: "Başlık (FR)", placeholder: "Coupe" },
   { key: "valueEn", head: "Değer (EN)", placeholder: "Relaxed" },
-  { key: "valueTr", head: "Değer (TR)", placeholder: "Rahat" },
+  { key: "valueEs", head: "Değer (ES)", placeholder: "Holgado" },
+  { key: "valueRu", head: "Değer (RU)", placeholder: "Свободный" },
   { key: "valueFr", head: "Değer (FR)", placeholder: "Ample" },
 ];
 
@@ -18,7 +20,7 @@ export function SpecsField({ name, initial }: { name: string; initial: SpecRow[]
 
   return (
     <div>
-      <input type="hidden" name={name} value={JSON.stringify(rows.filter((r) => r.labelEn || r.labelTr))} />
+      <input type="hidden" name={name} value={JSON.stringify(rows.filter((r) => r.labelEn))} />
       <div className="hidden grid-cols-[repeat(6,1fr)_auto] gap-2 px-1 pb-1 text-[0.65rem] text-ash md:grid">
         {COLUMNS.map((c) => (
           <span key={c.key}>{c.head}</span>

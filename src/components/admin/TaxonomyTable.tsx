@@ -22,8 +22,9 @@ export function TaxonomyTable({ kind, rows, countLabel }: { kind: "category" | "
         <table className="admin-table">
           <thead>
             <tr>
-              <th>Ad (TR)</th>
-              <th>Ad (EN)</th>
+              <th>Ad (EN) *</th>
+              <th>Ad (ES)</th>
+              <th>Ad (RU)</th>
               <th>Ad (FR)</th>
               <th>Slug</th>
               <th>Sıra</th>
@@ -35,13 +36,16 @@ export function TaxonomyTable({ kind, rows, countLabel }: { kind: "category" | "
             {b.rows.map((r) => (
               <tr key={r.id} className={cn(b.isDirty(r) && "[&>td]:bg-brand/5")}>
                 <td>
-                  <input className={cn(cell.input, "min-w-44")} value={r.nameTr} onChange={(e) => b.patch(r.id, { nameTr: e.target.value })} />
+                  <input className={cn(cell.input, "min-w-40")} value={r.nameEn} onChange={(e) => b.patch(r.id, { nameEn: e.target.value })} />
                 </td>
                 <td>
-                  <input className={cn(cell.input, "min-w-44")} value={r.nameEn} onChange={(e) => b.patch(r.id, { nameEn: e.target.value })} />
+                  <input className={cn(cell.input, "min-w-40")} value={r.nameEs ?? ""} placeholder={r.nameEn} onChange={(e) => b.patch(r.id, { nameEs: e.target.value })} />
                 </td>
                 <td>
-                  <input className={cn(cell.input, "min-w-44")} value={r.nameFr ?? ""} placeholder={r.nameEn} onChange={(e) => b.patch(r.id, { nameFr: e.target.value })} />
+                  <input className={cn(cell.input, "min-w-40")} value={r.nameRu ?? ""} placeholder={r.nameEn} onChange={(e) => b.patch(r.id, { nameRu: e.target.value })} />
+                </td>
+                <td>
+                  <input className={cn(cell.input, "min-w-40")} value={r.nameFr ?? ""} placeholder={r.nameEn} onChange={(e) => b.patch(r.id, { nameFr: e.target.value })} />
                 </td>
                 <td>
                   <input className={cn(cell.input, "min-w-36 font-mono text-xs")} value={r.slug} onChange={(e) => b.patch(r.id, { slug: e.target.value })} />
@@ -59,9 +63,10 @@ export function TaxonomyTable({ kind, rows, countLabel }: { kind: "category" | "
         </table>
       </div>
 
-      <form action={saveTaxonomy.bind(null, kind, null)} className="mt-4 grid grid-cols-2 gap-2 rounded-lg border border-dashed border-line p-3 md:grid-cols-[1fr_1fr_1fr_1fr_90px_auto] md:items-center">
-        <input name="nameTr" placeholder="Yeni — Türkçe ad" required className="admin-input" />
-        <input name="nameEn" placeholder="New — English name" required className="admin-input" />
+      <form action={saveTaxonomy.bind(null, kind, null)} className="mt-4 grid grid-cols-2 gap-2 rounded-lg border border-dashed border-line p-3 md:grid-cols-[repeat(5,minmax(0,1fr))_90px_auto] md:items-center">
+        <input name="nameEn" placeholder="New — English name *" required className="admin-input" />
+        <input name="nameEs" placeholder="Nuevo — nombre en español" className="admin-input" />
+        <input name="nameRu" placeholder="Новое — название" className="admin-input" />
         <input name="nameFr" placeholder="Nouveau — nom français" className="admin-input" />
         <input name="slug" placeholder="slug (otomatik)" className="admin-input" />
         <input name="sortOrder" type="number" defaultValue={rows.length} className="admin-input" />

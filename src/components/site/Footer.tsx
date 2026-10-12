@@ -5,13 +5,13 @@ import type { Dictionary } from "@/i18n/get-dictionary";
 import type { ContactSettings } from "@/lib/content-types";
 import { ABOUT_PATH, aboutMenu } from "@/content/about-sections";
 import { AR_GE_ID, HOME_PATH, arGeLabel } from "@/content/site-sections";
-import { InstagramIcon, MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "./ContactIcons";
+import { FacebookIcon, InstagramIcon, LinkedInIcon, MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "./ContactIcons";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { SectionLink } from "./SectionLink";
 
 type Props = { lang: Locale; dict: Dictionary; contact: ContactSettings };
 
-const BACK_TO_TOP: Record<Locale, string> = { tr: "Yukarı", en: "Top", fr: "Haut" };
+const BACK_TO_TOP: Record<Locale, string> = { en: "Top", es: "Arriba", ru: "Наверх", fr: "Haut" };
 
 function ColumnTitle({ children }: { children: React.ReactNode }) {
   return (
@@ -36,17 +36,22 @@ export function Footer({ lang, dict, contact }: Props) {
   ];
   const wa = contact.whatsapp.replace(/[^\d]/g, "");
   const about = aboutMenu(lang);
+  // Empty settings (e.g. no phone) simply leave that line out
   const channels = [
-    { href: `mailto:${contact.email}`, label: contact.email, Icon: MailIcon },
-    { href: `tel:${contact.phone.replace(/\s/g, "")}`, label: contact.phone, Icon: PhoneIcon },
-    { href: `https://wa.me/${wa}`, label: "WhatsApp", Icon: WhatsAppIcon, external: true },
-    { href: `https://instagram.com/${contact.instagram}`, label: `@${contact.instagram}`, Icon: InstagramIcon, external: true },
-  ];
+    { href: `mailto:${contact.email}`, label: contact.email, Icon: MailIcon, show: true },
+    { href: `tel:${contact.phone.replace(/\s/g, "")}`, label: contact.phone, Icon: PhoneIcon, show: !!contact.phone },
+    { href: `https://wa.me/${wa}`, label: "WhatsApp", Icon: WhatsAppIcon, external: true, show: !!wa },
+    { href: `https://instagram.com/${contact.instagram}`, label: `@${contact.instagram}`, Icon: InstagramIcon, external: true, show: !!contact.instagram },
+    { href: contact.linkedin ?? "", label: "LinkedIn", Icon: LinkedInIcon, external: true, show: !!contact.linkedin },
+    { href: contact.facebook ?? "", label: "Facebook", Icon: FacebookIcon, external: true, show: !!contact.facebook },
+  ].filter((c) => c.show);
   const socials = [
-    { href: `https://instagram.com/${contact.instagram}`, label: "Instagram", Icon: InstagramIcon },
-    { href: `https://wa.me/${wa}`, label: "WhatsApp", Icon: WhatsAppIcon },
-    { href: `mailto:${contact.email}`, label: "E-mail", Icon: MailIcon },
-  ];
+    { href: `https://instagram.com/${contact.instagram}`, label: "Instagram", Icon: InstagramIcon, show: !!contact.instagram },
+    { href: contact.linkedin ?? "", label: "LinkedIn", Icon: LinkedInIcon, show: !!contact.linkedin },
+    { href: contact.facebook ?? "", label: "Facebook", Icon: FacebookIcon, show: !!contact.facebook },
+    { href: `https://wa.me/${wa}`, label: "WhatsApp", Icon: WhatsAppIcon, show: !!wa },
+    { href: `mailto:${contact.email}`, label: "E-mail", Icon: MailIcon, show: true },
+  ].filter((c) => c.show);
 
   return (
     // Dark red ground, deepening slightly toward the foot
@@ -141,7 +146,10 @@ export function Footer({ lang, dict, contact }: Props) {
       <div className="relative border-t border-line">
         <div className="container-x eyebrow flex flex-col gap-4 py-6 text-ash md:flex-row md:items-center md:justify-between">
           <p>
-            © {new Date().getFullYear()} Lizart Dijital. {dict.footer.rights}
+            © {new Date().getFullYear()} Lizart Dijital Pazarlama ·{" "}
+            <a href="tel:+902623010134" className="hover:text-bone">
+              +90 262 301 01 34
+            </a>
           </p>
           <div className="flex items-center gap-8">
             <Link href={localePath(lang, "/privacy")} className="link-line hover:text-bone">

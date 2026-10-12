@@ -1,4 +1,6 @@
 import type { ImageRef } from "@/lib/content-types";
+import esJson from "./i18n/sustainability.es.json";
+import ruJson from "./i18n/sustainability.ru.json";
 
 /**
  * Sustainability page — edited from the admin (Pages → Sustainability).
@@ -71,4 +73,6 @@ export const sustainabilityContent = {
   tr,
   en,
   fr,
+  es: esJson as SustainabilityContent,
+  ru: ruJson as SustainabilityContent,
 };

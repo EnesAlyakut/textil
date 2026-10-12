@@ -18,8 +18,7 @@ export function PostsTable({ rows: initial, meta, categories }: { rows: PostRow[
           <thead>
             <tr>
               <th />
-              <th>Başlık (TR)</th>
-              <th>Başlık (EN)</th>
+              <th>Başlık</th>
               <th>Kategori</th>
               <th>Yayın tarihi</th>
               <th className="text-center">Yayında</th>
@@ -37,9 +36,6 @@ export function PostsTable({ rows: initial, meta, categories }: { rows: PostRow[
                       // eslint-disable-next-line @next/next/no-img-element -- admin thumbnail
                       <img src={m.cover.url} alt="" className="h-12 w-16 rounded object-cover" style={{ objectPosition: m.cover.position }} />
                     )}
-                  </td>
-                  <td>
-                    <input className={cn(cell.input, "min-w-56")} value={r.titleTr} onChange={(e) => b.patch(r.id, { titleTr: e.target.value })} />
                   </td>
                   <td>
                     <input className={cn(cell.input, "min-w-56")} value={r.titleEn} onChange={(e) => b.patch(r.id, { titleEn: e.target.value })} />

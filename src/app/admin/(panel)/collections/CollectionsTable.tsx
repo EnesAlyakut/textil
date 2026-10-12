@@ -17,9 +17,8 @@ export function CollectionsTable({ rows: initial, meta }: { rows: CollectionRow[
           <thead>
             <tr>
               <th />
-              <th>Ad (TR)</th>
               <th>Ad (EN)</th>
-              <th>Sezon (TR / EN)</th>
+              <th>Sezon</th>
               <th>Slug</th>
               <th>Sıra</th>
               <th className="text-center">Yayında</th>
@@ -40,14 +39,10 @@ export function CollectionsTable({ rows: initial, meta }: { rows: CollectionRow[
                     )}
                   </td>
                   <td>
-                    <input className={cn(cell.input, "min-w-36")} value={r.nameTr} onChange={(e) => b.patch(r.id, { nameTr: e.target.value })} />
-                  </td>
-                  <td>
                     <input className={cn(cell.input, "min-w-36")} value={r.nameEn} onChange={(e) => b.patch(r.id, { nameEn: e.target.value })} />
                   </td>
                   <td>
                     <div className="flex gap-1.5">
-                      <input className={cn(cell.input, "w-24")} value={r.seasonTr} onChange={(e) => b.patch(r.id, { seasonTr: e.target.value })} />
                       <input className={cn(cell.input, "w-24")} value={r.seasonEn} onChange={(e) => b.patch(r.id, { seasonEn: e.target.value })} />
                     </div>
                   </td>

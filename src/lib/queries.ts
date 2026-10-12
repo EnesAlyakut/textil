@@ -23,10 +23,11 @@ export type ProductCardData = {
   colorEn: string | null;
   colorTr: string | null;
   colorFr: string | null;
+  i18n?: unknown;
   price: number;
-  category: { slug: string; nameEn: string; nameTr: string; nameFr: string | null } | null;
-  collection: { slug: string; nameEn: string; nameTr: string; nameFr: string | null } | null;
-  image: { url: string; width: number; height: number; blurDataUrl: string | null; objectPosition: string; altEn: string | null; altTr: string | null; altFr: string | null } | null;
+  category: { slug: string; nameEn: string; nameTr: string; nameFr: string | null; i18n?: unknown } | null;
+  collection: { slug: string; nameEn: string; nameTr: string; nameFr: string | null; i18n?: unknown } | null;
+  image: { url: string; width: number; height: number; blurDataUrl: string | null; objectPosition: string; altEn: string | null; altTr: string | null; altFr: string | null; i18n?: unknown } | null;
   hoverImage: ProductCardData["image"];
   /** Highest-resolution portrait image — used where a card is rendered large */
   featureImage: ProductCardData["image"];
@@ -53,7 +54,7 @@ export function toCard(p: ProductWithRelations): ProductCardData {
   const wide = p.images.filter((i) => i.width > i.height && i.width >= 1600).sort((a, b) => b.width - a.width)[0];
   const pic = (i: (typeof p.images)[number] | undefined | null) =>
     i
-      ? { url: i.url, width: i.width, height: i.height, blurDataUrl: i.blurDataUrl, objectPosition: i.objectPosition, altEn: i.altEn, altTr: i.altTr, altFr: i.altFr }
+      ? { url: i.url, width: i.width, height: i.height, blurDataUrl: i.blurDataUrl, objectPosition: i.objectPosition, altEn: i.altEn, altTr: i.altTr, altFr: i.altFr, i18n: i.i18n }
       : null;
   return {
     id: p.id,
@@ -65,9 +66,10 @@ export function toCard(p: ProductWithRelations): ProductCardData {
     colorEn: p.colorEn,
     colorTr: p.colorTr,
     colorFr: p.colorFr,
+    i18n: p.i18n,
     price: Number(p.price),
-    category: p.category ? { slug: p.category.slug, nameEn: p.category.nameEn, nameTr: p.category.nameTr, nameFr: p.category.nameFr } : null,
-    collection: p.collection ? { slug: p.collection.slug, nameEn: p.collection.nameEn, nameTr: p.collection.nameTr, nameFr: p.collection.nameFr } : null,
+    category: p.category ? { slug: p.category.slug, nameEn: p.category.nameEn, nameTr: p.category.nameTr, nameFr: p.category.nameFr, i18n: p.category.i18n } : null,
+    collection: p.collection ? { slug: p.collection.slug, nameEn: p.collection.nameEn, nameTr: p.collection.nameTr, nameFr: p.collection.nameFr, i18n: p.collection.i18n } : null,
     image: pic(main),
     hoverImage: pic(portrait.find((i) => i.id !== main?.id)),
     featureImage: pic(feature),
@@ -172,6 +174,8 @@ const DEFAULT_CONTACT: ContactSettings = {
   addressTr: "İstanbul, Türkiye",
   addressFr: "Istanbul, Turquie",
   instagram: "yegtextile",
+  linkedin: "https://www.linkedin.com/company/yeg-textile",
+  facebook: "https://www.facebook.com/YEGTEXTILE",
 };
 
 export const getSettings = cache(async () => {

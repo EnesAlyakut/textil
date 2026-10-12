@@ -1,5 +1,5 @@
 import { TaxonomyTable } from "@/components/admin/TaxonomyTable";
-import { PageTitle } from "@/components/admin/ui";
+import { PageTitle, lv } from "@/components/admin/ui";
 import { db } from "@/lib/db";
 
 export const metadata = { title: "Kategoriler" };
@@ -10,7 +10,7 @@ export default async function AdminCategories() {
     <>
       <PageTitle title="Ürün kategorileri" description="Ürünler sayfasındaki filtrelerde kullanılır." />
       <TaxonomyTable kind="category" countLabel="Ürün"
-        rows={rows.map((r) => ({ id: r.id, nameTr: r.nameTr, nameEn: r.nameEn, nameFr: r.nameFr, slug: r.slug, sortOrder: r.sortOrder, count: r._count.products }))} />
+        rows={rows.map((r) => ({ id: r.id, nameTr: r.nameTr, nameEn: r.nameEn, nameFr: r.nameFr, nameEs: lv(r, "name", "es") || null, nameRu: lv(r, "name", "ru") || null, slug: r.slug, sortOrder: r.sortOrder, count: r._count.products }))} />
     </>
   );
 }

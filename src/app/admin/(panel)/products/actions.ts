@@ -3,7 +3,7 @@
 import { Prisma } from "@prisma/client";
 import { redirect } from "next/navigation";
 import type { GalleryItem } from "@/components/admin/GalleryField";
-import { bool, int, json, lines, optStr, revalidateSite, str, type ActionState } from "@/lib/admin";
+import { bool, int, json, lines, optStr, revalidateSite, str, type ActionState, formI18n } from "@/lib/admin";
 import { requireAdmin } from "@/lib/auth";
 import type { SpecRow } from "@/lib/content-types";
 import { db } from "@/lib/db";
@@ -14,7 +14,7 @@ export async function saveProduct(id: string | null, _prev: ActionState, fd: For
 
   const slug = slugify(str(fd, "slug") || str(fd, "nameEn"));
   const price = Number.parseFloat(str(fd, "price").replace(",", "."));
-  if (!str(fd, "nameEn") || !str(fd, "nameTr")) return { error: "Ürün adı (EN ve TR) zorunludur." };
+  if (!str(fd, "nameEn")) return { error: "Ürün adı (EN) zorunludur." };
   if (!slug) return { error: "Geçerli bir slug girin." };
   if (!Number.isFinite(price) || price < 0) return { error: "Geçerli bir fiyat girin." };
 
@@ -23,7 +23,7 @@ export async function saveProduct(id: string | null, _prev: ActionState, fd: For
     slug,
     code: optStr(fd, "code"),
     nameEn: str(fd, "nameEn"),
-    nameTr: str(fd, "nameTr"),
+    nameTr: str(fd, "nameTr") || str(fd, "nameEn"),
     nameFr: optStr(fd, "nameFr"),
     shortEn: optStr(fd, "shortEn"),
     shortTr: optStr(fd, "shortTr"),
@@ -54,6 +54,7 @@ export async function saveProduct(id: string | null, _prev: ActionState, fd: For
     seoDescriptionTr: optStr(fd, "seoDescriptionTr"),
     seoTitleFr: optStr(fd, "seoTitleFr"),
     seoDescriptionFr: optStr(fd, "seoDescriptionFr"),
+    i18n: formI18n(fd, ["features"]),
   };
 
   let productId = id;
@@ -110,13 +111,14 @@ export async function duplicateProduct(id: string) {
       featuresEn: rest.featuresEn as Prisma.InputJsonValue,
       featuresTr: rest.featuresTr as Prisma.InputJsonValue,
       featuresFr: (rest.featuresFr ?? []) as Prisma.InputJsonValue,
+      i18n: (rest.i18n ?? undefined) as Prisma.InputJsonValue | undefined,
       slug: `${p.slug}-${suffix}`,
       code: p.code ? `${p.code}-${suffix}` : null,
       nameEn: `${p.nameEn} (copy)`,
       nameTr: `${p.nameTr} (kopya)`,
       nameFr: p.nameFr ? `${p.nameFr} (copie)` : null,
       published: false,
-      images: { create: images.map(({ id: _i, productId: _p, ...img }) => img) },
+      images: { create: images.map(({ id: _i, productId: _p, i18n, ...img }) => ({ ...img, i18n: (i18n ?? undefined) as Prisma.InputJsonValue | undefined })) },
     },
   });
   redirect(`/admin/products/${copy.id}`);

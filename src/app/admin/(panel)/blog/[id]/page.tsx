@@ -15,7 +15,7 @@ export default async function EditPost({ params }: PageProps<"/admin/blog/[id]">
   return (
     <>
       <PageTitle
-        title={post.titleTr}
+        title={post.titleEn}
         description={post.titleEn}
         actions={
           <>

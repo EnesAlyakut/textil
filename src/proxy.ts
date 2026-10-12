@@ -17,12 +17,12 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Turkish and French are served from /tr and /fr as-is.
-  if (pathname === "/tr" || pathname.startsWith("/tr/")) return NextResponse.next();
-  if (pathname === "/fr" || pathname.startsWith("/fr/")) return NextResponse.next();
+  // Spanish, Russian and French are served from their prefix as-is.
+  if (/^\/(es|ru|fr)(\/|$)/.test(pathname)) return NextResponse.next();
 
   // English is the default and canonical at the root: /en/... → /...
-  if (pathname === "/en" || pathname.startsWith("/en/")) {
+  // The Turkish site is retired; old /tr links land on the same page in English.
+  if (/^\/(en|tr)(\/|$)/.test(pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = pathname.slice(3) || "/";
     return NextResponse.redirect(url, 308);

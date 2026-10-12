@@ -17,7 +17,7 @@ export default async function AdminBlog() {
         <Empty>Henüz yazı yok.</Empty>
       ) : (
         <PostsTable
-          categories={categories.map((c) => ({ id: c.id, name: c.nameTr }))}
+          categories={categories.map((c) => ({ id: c.id, name: c.nameEn }))}
           rows={posts.map((p) => ({
             id: p.id,
             titleTr: p.titleTr,

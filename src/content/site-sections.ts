@@ -5,7 +5,7 @@ import { ABOUT_PATH, aboutMenu } from "./about-sections";
  * In-page sections reachable from the header submenus and the footer.
  * Light on purpose: the Navbar (client) bundles this file.
  */
-export const homeSections = [{ id: "ar-ge", tr: "Ar-Ge", en: "R&D", fr: "R&D" }] as const;
+export const homeSections = [{ id: "ar-ge", tr: "Ar-Ge", en: "R&D", fr: "R&D", es: "I+D", ru: "НИОКР" }] as const;
 
 export const AR_GE_ID = "ar-ge";
 export const HOME_PATH = "/";
@@ -14,6 +14,8 @@ const homeUi = {
   tr: { submenu: "Ana sayfa alt menüsü" },
   en: { submenu: "Home submenu" },
   fr: { submenu: "Sous-menu Accueil" },
+  es: { submenu: "Submenú Inicio" },
+  ru: { submenu: "Подменю «Главная»" },
 };
 
 export type Submenu = { submenu: string; items: { id: string; label: string; index: string }[] };

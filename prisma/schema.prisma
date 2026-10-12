@@ -31,6 +31,8 @@ model Category {
   sortOrder Int       @default(0)
   products  Product[]
   createdAt DateTime  @default(now())
+  /// Spanish / Russian copy, e.g. { es: { name: "…" }, ru: { … } }; read by pick() when no column exists for the language
+  i18n      Json?
 
   @@index([sortOrder])
 }
@@ -69,6 +71,8 @@ model Collection {
   products         Product[]
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
+  /// Spanish / Russian copy, e.g. { es: { name: "…" }, ru: { … } }; read by pick() when no column exists for the language
+  i18n             Json?
 
   @@index([published, sortOrder])
 }
@@ -118,6 +122,8 @@ model Product {
   seoDescriptionFr String?
   createdAt        DateTime       @default(now())
   updatedAt        DateTime       @updatedAt
+  /// Spanish / Russian copy, e.g. { es: { name: "…" }, ru: { … } }; read by pick() when no column exists for the language
+  i18n             Json?
 
   @@index([collectionId])
   @@index([categoryId])
@@ -141,6 +147,8 @@ model ProductImage {
   objectPosition String  @default("50% 30%")
   isPrimary      Boolean @default(false)
   sortOrder      Int     @default(0)
+  /// Spanish / Russian copy, e.g. { es: { name: "…" }, ru: { … } }; read by pick() when no column exists for the language
+  i18n           Json?
 
   @@index([productId, sortOrder])
 }
@@ -154,6 +162,8 @@ model BlogCategory {
   sortOrder Int      @default(0)
   posts     Blog[]
   createdAt DateTime @default(now())
+  /// Spanish / Russian copy, e.g. { es: { name: "…" }, ru: { … } }; read by pick() when no column exists for the language
+  i18n      Json?
 
   @@index([sortOrder])
 }
@@ -192,6 +202,8 @@ model Blog {
   seoDescriptionFr String?
   createdAt        DateTime      @default(now())
   updatedAt        DateTime      @updatedAt
+  /// Spanish / Russian copy, e.g. { es: { name: "…" }, ru: { … } }; read by pick() when no column exists for the language
+  i18n             Json?
 
   @@index([published, publishedAt])
   @@index([categoryId])

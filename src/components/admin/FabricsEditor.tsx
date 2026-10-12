@@ -10,7 +10,7 @@ import { cn, slugify } from "@/lib/utils";
 import { FormShell } from "./FormShell";
 import { ImageField } from "./ImageField";
 
-type L = "tr" | "en" | "fr";
+type L = "tr" | "en" | "fr" | "es" | "ru";
 type Fabric = { slug: string; weave: Weave; title: string; materials: string[] };
 type Group = { id: string; label: string; fabrics: Fabric[] };
 type Lang = {
@@ -27,13 +27,14 @@ type Lang = {
   cta: string;
   [k: string]: unknown;
 };
-type Data = { tr: Lang; en: Lang; fr: Lang; images: { hero: ImageRef; swatches?: Record<string, ImageRef | null> }; [k: string]: unknown };
+type Data = { tr: Lang; en: Lang; fr: Lang; es: Lang; ru: Lang; images: { hero: ImageRef; swatches?: Record<string, ImageRef | null> }; [k: string]: unknown };
 type Detail = { structure: string; lead: string; body: string[]; features: { title: string; text: string }[]; uses: string[]; materialNotes: string[]; finishes: string[] };
-type Details = { tr: Record<string, Detail>; en: Record<string, Detail>; fr: Record<string, Detail>; [k: string]: unknown };
+type Details = { tr: Record<string, Detail>; en: Record<string, Detail>; fr: Record<string, Detail>; es: Record<string, Detail>; ru: Record<string, Detail>; [k: string]: unknown };
 
 const LANGS: { key: L; label: string; prefix: string }[] = [
-  { key: "tr", label: "TR", prefix: "/tr" },
   { key: "en", label: "EN", prefix: "" },
+  { key: "es", label: "ES", prefix: "/es" },
+  { key: "ru", label: "RU", prefix: "/ru" },
   { key: "fr", label: "FR", prefix: "/fr" },
 ];
 
@@ -191,7 +192,7 @@ type Props = { initial: unknown; details: unknown; action: (prev: ActionState, f
 export function FabricsEditor({ initial, details: initialDetails, action }: Props) {
   const [data, setData] = useState<Data>(initial as Data);
   const [details, setDetails] = useState<Details>(initialDetails as Details);
-  const [lang, setLang] = useState<L>("tr");
+  const [lang, setLang] = useState<L>("en");
   const [sel, setSel] = useState<string>("_page");
   const [adding, setAdding] = useState<number | null>(null);
   const [newName, setNewName] = useState("");

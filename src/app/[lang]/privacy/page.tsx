@@ -29,27 +29,48 @@ This site uses only technically necessary storage (for example to remember that 
 ## Your rights
 
 You can ask us to access, correct or delete your data at any time by writing to ${email}.`,
-  tr: (email: string) => `Bu politika, YEG Textile'ın bu web sitesi üzerinden iletilen kişisel verileri nasıl işlediğini açıklar.
+  es: (email: string) => `Esta política explica cómo YEG Textile trata los datos personales enviados a través de este sitio web.
 
-## Topladığımız veriler
+## Qué datos recogemos
 
-İletişim formunu kullandığınızda adınızı, e-posta adresinizi ve — paylaşmayı tercih ederseniz — telefon numaranızı, firma bilginizi ve mesajınızı alırız. Çevrimiçi satış yapmıyor ve ödeme bilgisi toplamıyoruz.
+Cuando utilizas el formulario de contacto, recogemos tu nombre, tu dirección de correo electrónico y, si decides compartirlos, tu número de teléfono, tu empresa y tu mensaje. No vendemos en línea ni recogemos datos de pago.
 
-## Nasıl kullanıyoruz
+## Cómo los utilizamos
 
-Bu bilgileri yalnızca talebinizi yanıtlamak ve gerektiğinde teklif veya numune hazırlamak için kullanırız. Pazarlama amacıyla üçüncü kişilerle paylaşmayız.
+Utilizamos esta información únicamente para responder a tu solicitud y, cuando sea necesario, preparar presupuestos o muestras. No la compartimos con terceros con fines de marketing.
 
-## Saklama
+## Conservación
 
-Mesajlar, talebin ve olası iş ilişkisinin yürütülmesi için gereken süre boyunca sunucularımızda güvenli şekilde saklanır.
+Los mensajes se conservan de forma segura en nuestros servidores durante el tiempo necesario para gestionar la solicitud y cualquier relación comercial derivada de ella.
 
-## Çerezler
+## Cookies
 
-Bu site yalnızca teknik olarak zorunlu depolama kullanır (örneğin açılış animasyonunun oynatıldığını hatırlamak için). Reklam veya takip çerezi kullanılmaz.
+Este sitio solo utiliza el almacenamiento técnicamente necesario (por ejemplo, para recordar que la animación de entrada ya se ha reproducido). No se utilizan cookies publicitarias ni de seguimiento.
 
-## Haklarınız
+## Tus derechos
 
-KVKK kapsamında verilerinize erişme, düzeltme veya silinmesini talep etme hakkına sahipsiniz. Bunun için ${email} adresine yazabilirsiniz.`,
+Puedes solicitar en cualquier momento el acceso, la rectificación o la supresión de tus datos escribiendo a ${email}.`,
+  ru: (email: string) => `Эта политика объясняет, как YEG Textile обрабатывает персональные данные, переданные через этот сайт.
+
+## Какие данные мы собираем
+
+Когда вы пользуетесь контактной формой, мы получаем ваше имя, адрес электронной почты и — если вы решите их указать — номер телефона, название компании и ваше сообщение. Мы не продаём онлайн и не собираем платёжные данные.
+
+## Как мы их используем
+
+Мы используем эту информацию только для ответа на ваш запрос и, при необходимости, для подготовки коммерческих предложений или образцов. Мы не передаём её третьим лицам в маркетинговых целях.
+
+## Хранение
+
+Сообщения надёжно хранятся на наших серверах в течение срока, необходимого для обработки запроса и возможного делового сотрудничества.
+
+## Файлы cookie
+
+Сайт использует только технически необходимое хранилище (например, чтобы запомнить, что вступительная анимация уже была показана). Рекламные и отслеживающие cookie не используются.
+
+## Ваши права
+
+Вы можете в любой момент запросить доступ к своим данным, их исправление или удаление, написав на ${email}.`,
   fr: (email: string) => `Cette politique explique comment YEG Textile traite les données personnelles transmises via ce site.
 
 ## Ce que nous collectons

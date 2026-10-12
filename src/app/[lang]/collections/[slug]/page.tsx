@@ -158,7 +158,7 @@ export default async function CollectionPage({ params }: PageProps<"/[lang]/coll
           className="group container-x relative isolate block overflow-hidden border-t border-line py-20 md:py-28"
         >
           <Glow at="bottom" className="opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
-          <p className="eyebrow flex items-center gap-3 text-ash"><span aria-hidden className="h-px w-8 bg-brand" />{{ en: "Next collection", tr: "Sonraki koleksiyon", fr: "Collection suivante" }[lang]}</p>
+          <p className="eyebrow flex items-center gap-3 text-ash"><span aria-hidden className="h-px w-8 bg-brand" />{{ en: "Next collection", es: "Siguiente colección", ru: "Следующая коллекция", fr: "Collection suivante" }[lang]}</p>
           <p className="display mt-4 text-fluid-xl transition-colors duration-500 group-hover:text-brand">{pick(next, "name", lang)} <span className="text-brand">→</span></p>
         </Link>
       )}

@@ -99,8 +99,8 @@ export default async function Dashboard() {
                       <img src={p.images[0].url} alt="" className="h-full w-full object-cover transition group-hover:scale-105" style={{ objectPosition: p.images[0].objectPosition }} />
                     )}
                   </div>
-                  <p className="mt-2 truncate text-xs group-hover:text-brand">{p.nameTr}</p>
-                  <p className="truncate text-[0.65rem] text-ash">{p.collection?.nameTr}</p>
+                  <p className="mt-2 truncate text-xs group-hover:text-brand">{p.nameEn}</p>
+                  <p className="truncate text-[0.65rem] text-ash">{p.collection?.nameEn}</p>
                 </Link>
               </li>
             ))}
@@ -119,7 +119,7 @@ export default async function Dashboard() {
               {latestPosts.map((b) => (
                 <li key={b.id} className="flex justify-between gap-4 py-2">
                   <Link href={`/admin/blog/${b.id}`} className="truncate hover:text-brand">
-                    {b.titleTr}
+                    {b.titleEn}
                   </Link>
                   <span className="shrink-0 text-xs text-ash">{formatDate(b.publishedAt, "tr")}</span>
                 </li>

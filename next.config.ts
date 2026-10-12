@@ -16,17 +16,14 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   // Temporary share links (localhost.run SSH tunnel) to the dev server
   allowedDevOrigins: ["*.lhr.life", "*.localhost.run"],
-  // Turkish alias for the About page; browsers carry the #section across the redirect.
+  // Old Turkish page names; browsers carry the #section across the redirect.
   async redirects() {
     return [
-      { source: "/hakkimizda", destination: "/tr/about", permanent: false },
-      { source: "/tr/hakkimizda", destination: "/tr/about", permanent: false },
-      { source: "/uretim", destination: "/tr/production", permanent: false },
-      { source: "/tr/uretim", destination: "/tr/production", permanent: false },
-      { source: "/kumaslar", destination: "/tr/fabrics", permanent: false },
-      { source: "/tr/kumaslar", destination: "/tr/fabrics", permanent: false },
-      { source: "/surdurulebilirlik", destination: "/tr/sustainability", permanent: false },
-      { source: "/tr/surdurulebilirlik", destination: "/tr/sustainability", permanent: false },
+      { source: "/hakkimizda", destination: "/about", permanent: true },
+      { source: "/uretim", destination: "/production", permanent: true },
+      { source: "/kumaslar", destination: "/fabrics", permanent: true },
+      { source: "/surdurulebilirlik", destination: "/sustainability", permanent: true },
+      { source: "/iletisim", destination: "/contact", permanent: true },
     ];
   },
 };

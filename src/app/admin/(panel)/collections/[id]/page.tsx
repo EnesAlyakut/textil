@@ -19,7 +19,7 @@ export default async function EditCollection({ params }: PageProps<"/admin/colle
   return (
     <>
       <PageTitle
-        title={collection.nameTr}
+        title={collection.nameEn}
         description={collection.nameEn}
         actions={
           <>

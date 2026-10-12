@@ -31,7 +31,7 @@ export default async function AdminProducts({ searchParams }: PageProps<"/admin/
           <option value="">Tüm koleksiyonlar</option>
           {collections.map((c) => (
             <option key={c.id} value={c.slug}>
-              {c.nameTr}
+              {c.nameEn}
             </option>
           ))}
         </select>
@@ -43,8 +43,8 @@ export default async function AdminProducts({ searchParams }: PageProps<"/admin/
       ) : (
         <BulkTable
           currency={general.currency}
-          categories={categories.map((c) => ({ id: c.id, name: c.nameTr }))}
-          collections={collections.map((c) => ({ id: c.id, name: c.nameTr }))}
+          categories={categories.map((c) => ({ id: c.id, name: c.nameEn }))}
+          collections={collections.map((c) => ({ id: c.id, name: c.nameEn }))}
           products={products.map((p) => ({
             id: p.id,
             nameTr: p.nameTr,

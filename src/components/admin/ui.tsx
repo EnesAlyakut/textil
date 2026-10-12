@@ -73,6 +73,8 @@ export function Bilingual({
   en,
   tr,
   fr,
+  es,
+  ru,
   textarea,
   rows,
   required,
@@ -83,6 +85,8 @@ export function Bilingual({
   en?: string | null;
   tr?: string | null;
   fr?: string | null;
+  es?: string | null;
+  ru?: string | null;
   textarea?: boolean;
   rows?: number;
   required?: boolean;
@@ -91,13 +95,14 @@ export function Bilingual({
   const C = textarea ? Textarea : Input;
   const langs = [
     { code: "EN", suffix: "En", value: en, required },
-    { code: "TR", suffix: "Tr", value: tr, required },
+    { code: "ES", suffix: "Es", value: es, required: false },
+    { code: "RU", suffix: "Ru", value: ru, required: false },
     { code: "FR", suffix: "Fr", value: fr, required: false },
   ];
   return (
     <div>
       <span className="admin-label">{label}</span>
-      <div className="grid gap-3 md:grid-cols-3">
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         {langs.map((l) => (
           <div key={l.code} className="relative">
             <span className="pointer-events-none absolute right-2 top-2 text-[0.6rem] font-semibold text-ash">{l.code}</span>
@@ -130,4 +135,17 @@ export function Stat({ label, value, href }: { label: string; value: number | st
 
 export function Empty({ children }: { children: ReactNode }) {
   return <p className="rounded-lg border border-dashed border-line p-10 text-center text-sm text-ash">{children}</p>;
+}
+
+/**
+ * Spanish / Russian value for a Bilingual field: `titleEs` on JSON content, or `i18n.es.title` on database rows.
+ * Lists come back one item per line, the way the textareas edit them.
+ */
+export function lv(record: unknown, field: string, lang: "es" | "ru"): string {
+  if (!record || typeof record !== "object") return "";
+  const rec = record as Record<string, unknown>;
+  const own = rec[`${field}${lang === "es" ? "Es" : "Ru"}`];
+  const i18n = rec.i18n as Record<string, Record<string, unknown> | undefined> | null | undefined;
+  const value = own ?? i18n?.[lang]?.[field];
+  return Array.isArray(value) ? value.join("\n") : typeof value === "string" ? value : "";
 }

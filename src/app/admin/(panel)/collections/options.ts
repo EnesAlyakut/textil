@@ -9,8 +9,8 @@ export async function productOptions(): Promise<PickOption[]> {
   });
   return products.map((p) => ({
     value: p.id,
-    label: p.nameTr,
-    sub: [p.code, p.collection?.nameTr].filter(Boolean).join(" · "),
+    label: p.nameEn,
+    sub: [p.code, p.collection?.nameEn].filter(Boolean).join(" · "),
     image: p.images[0]?.url ?? null,
   }));
 }

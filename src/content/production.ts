@@ -1,5 +1,7 @@
 import media from "@/data/imported-media.json";
 import type { Locale } from "@/i18n/config";
+import esJson from "./i18n/production.es.json";
+import ruJson from "./i18n/production.ru.json";
 
 /**
  * Production page. Copy and photos come from the previous yegtextile.com/production page
@@ -188,7 +190,10 @@ const fr: ProductionContent = {
   cta: "Nous contacter",
 };
 
-const content = { en, tr, fr };
+const es = esJson as ProductionContent;
+const ru = ruJson as ProductionContent;
+
+const content = { en, tr, fr, es, ru };
 
 export const getProduction = (lang: Locale) => content[lang];
 /** All languages, the defaults the admin edits on top of */

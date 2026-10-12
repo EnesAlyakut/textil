@@ -17,7 +17,7 @@ export default async function SettingsPage() {
               <Field label="E-posta *">
                 <Input name="email" type="email" defaultValue={contact.email} required />
               </Field>
-              <Field label="Telefon">
+              <Field label="Telefon" hint="Boş bırakılırsa sitede telefon gösterilmez.">
                 <Input name="phone" defaultValue={contact.phone} />
               </Field>
               <Field label="WhatsApp" hint="Ülke koduyla, örn. +90 5xx xxx xx xx">
@@ -26,11 +26,14 @@ export default async function SettingsPage() {
               <Field label="Instagram kullanıcı adı">
                 <Input name="instagram" defaultValue={contact.instagram} />
               </Field>
-              <Field label="Adres (EN)">
-                <Input name="addressEn" defaultValue={contact.addressEn} />
+              <Field label="LinkedIn bağlantısı" hint="Tam adres, örn. https://www.linkedin.com/company/yeg-textile — boşsa gösterilmez.">
+                <Input name="linkedin" defaultValue={contact.linkedin ?? ""} />
               </Field>
-              <Field label="Adres (TR)">
-                <Input name="addressTr" defaultValue={contact.addressTr} />
+              <Field label="Facebook bağlantısı" hint="Tam adres, örn. https://www.facebook.com/YEGTEXTILE — boşsa gösterilmez.">
+                <Input name="facebook" defaultValue={contact.facebook ?? ""} />
+              </Field>
+              <Field label="Adres" hint="İngilizce, İspanyolca ve Rusça sitelerde bu adres gösterilir.">
+                <Input name="addressEn" defaultValue={contact.addressEn} />
               </Field>
               <Field label="Adres (FR)" hint="Boşsa İngilizce adres gösterilir.">
                 <Input name="addressFr" defaultValue={contact.addressFr ?? ""} />

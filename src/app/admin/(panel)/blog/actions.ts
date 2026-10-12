@@ -2,7 +2,7 @@
 
 import { Prisma } from "@prisma/client";
 import { redirect } from "next/navigation";
-import { bool, json, optStr, revalidateSite, str, type ActionState } from "@/lib/admin";
+import { bool, json, optStr, revalidateSite, str, type ActionState, formI18n } from "@/lib/admin";
 import { requireAdmin } from "@/lib/auth";
 import type { ImageRef, LookbookImage } from "@/lib/content-types";
 import { db } from "@/lib/db";
@@ -12,21 +12,21 @@ export async function savePost(id: string | null, _prev: ActionState, fd: FormDa
   await requireAdmin();
   const titleEn = str(fd, "titleEn");
   const titleTr = str(fd, "titleTr");
-  if (!titleEn || !titleTr) return { error: "Başlık (EN ve TR) zorunludur." };
-  if (!str(fd, "contentEn") || !str(fd, "contentTr")) return { error: "İçerik (EN ve TR) zorunludur." };
+  if (!titleEn) return { error: "Başlık (EN) zorunludur." };
+  if (!str(fd, "contentEn")) return { error: "İçerik (EN) zorunludur." };
   const cover = json<ImageRef | null>(fd, "cover", null);
   const date = str(fd, "publishedAt");
 
   const data = {
     slug: slugify(str(fd, "slug") || titleEn),
     titleEn,
-    titleTr,
+    titleTr: titleTr || titleEn,
     titleFr: optStr(fd, "titleFr"),
     excerptEn: optStr(fd, "excerptEn"),
     excerptTr: optStr(fd, "excerptTr"),
     excerptFr: optStr(fd, "excerptFr"),
     contentEn: str(fd, "contentEn"),
-    contentTr: str(fd, "contentTr"),
+    contentTr: str(fd, "contentTr") || str(fd, "contentEn"),
     contentFr: optStr(fd, "contentFr"),
     coverUrl: cover?.url ?? null,
     coverWidth: cover?.width ?? null,
@@ -45,6 +45,7 @@ export async function savePost(id: string | null, _prev: ActionState, fd: FormDa
     seoDescriptionTr: optStr(fd, "seoDescriptionTr"),
     seoTitleFr: optStr(fd, "seoTitleFr"),
     seoDescriptionFr: optStr(fd, "seoDescriptionFr"),
+    i18n: formI18n(fd),
   };
 
   let rowId = id;

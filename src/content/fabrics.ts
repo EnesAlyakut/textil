@@ -1,5 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import { importedImage } from "./production";
+import esJson from "./i18n/fabrics.es.json";
+import ruJson from "./i18n/fabrics.ru.json";
 
 /**
  * Fabrics page. Groups and materials come from the previous yegtextile.com/fabrics page
@@ -17,11 +19,11 @@ type Group = { id: "apparel" | "home" | "technical"; label: string; fabrics: Fab
 const tr = {
   meta: {
     title: "Kumaşlar",
-    description: "Gömleklikten döşemeliğe, perdeden teknik kumaşlara: YEG Textile’in giyim, ev tekstili ve teknik kumaş grupları.",
+    description: "Gömleklik, takım elbise, spor giyim, fantezi dış giyim ve iş elbisesi kumaşları: YEG Textile’in giyim kumaş grupları.",
   },
   eyebrow: "Kumaşlar",
   title: "Kumaşlar",
-  lead: "Giyimden ev tekstiline, teknik kumaşlara — 12 kumaş grubu.",
+  lead: "Gömleklikten spor giyime, dış giyimden iş elbisesine — 5 kumaş grubu.",
   groupsLabel: "Gruplar",
   countLabel: "kumaş grubu",
   materialsLabel: "Malzemeler",
@@ -36,23 +38,6 @@ const tr = {
         { slug: "fancy-outerwear", weave: "dobby", title: "Fantezi dış giyim kumaşları", materials: ["Düz", "Dobby", "İplik boyalı", "Ekose & çizgili", "Polyester-pamuk-viskon"] },
         { slug: "workwear", weave: "canvas", title: "İş elbisesi kumaşları", materials: ["Polyester", "Gabardin", "Kanvas", "Oxford"] },
       ],
-    },
-    {
-      id: "home",
-      label: "Ev & Dekorasyon",
-      fabrics: [
-        { slug: "decoration", weave: "drape", title: "Dekorasyon kumaşları", materials: ["Güneşlik", "Blackout", "Fon", "Perdelik", "Tül"] },
-        { slug: "curtain", weave: "zebra", title: "Perde kumaşları", materials: ["Kaplamalı düz stor", "Zebra", "Blackout"] },
-        { slug: "bed-linen", weave: "pinstripe", title: "Ev tekstili — nevresimlik", materials: ["Poli-pamuk", "Mikrofiber nevresim"] },
-        { slug: "home-knit-velvet", weave: "knit", title: "Ev tekstili — örme & kadife", materials: ["Polyester", "Viskon", "Örme raşel", "Kadife"] },
-        { slug: "upholstery", weave: "velvet", title: "Döşemelik kumaşlar", materials: ["Süet", "Raşel", "Kadife"] },
-        { slug: "mattress", weave: "quilt", title: "Yatak kumaşları", materials: ["Polyester", "Viskon", "Pamuk"] },
-      ],
-    },
-    {
-      id: "technical",
-      label: "Teknik",
-      fabrics: [{ slug: "technical", weave: "ripstop", title: "Çadır, mobilya & bant kumaşları", materials: ["Top boyama", "İplik boyama"] }],
     },
   ] as Group[],
   /** Interlude ("ara kapak") after the materials band. The lockup stays in English on every language. */
@@ -72,11 +57,11 @@ type FabricsContent = typeof tr;
 const en: FabricsContent = {
   meta: {
     title: "Fabrics",
-    description: "From shirting to upholstery, curtains to technical fabrics: YEG Textile’s apparel, home textile and technical fabric groups.",
+    description: "Shirting, suiting, sportswear, fancy outerwear and workwear fabrics: YEG Textile’s apparel fabric groups.",
   },
   eyebrow: "Fabrics",
   title: "Fabrics",
-  lead: "From apparel to home textiles and technical fabrics — 12 fabric groups.",
+  lead: "From shirting to sportswear, outerwear to workwear — 5 fabric groups.",
   groupsLabel: "Groups",
   countLabel: "fabric groups",
   materialsLabel: "Materials",
@@ -91,23 +76,6 @@ const en: FabricsContent = {
         { slug: "fancy-outerwear", weave: "dobby", title: "Fancy outerwear fabrics", materials: ["Plain", "Dobby", "Yarn-dyed", "Plaid & striped", "Polyester-cotton-viscose"] },
         { slug: "workwear", weave: "canvas", title: "Workwear fabrics", materials: ["Polyester", "Gabardine", "Canvas", "Oxford"] },
       ],
-    },
-    {
-      id: "home",
-      label: "Home & Decor",
-      fabrics: [
-        { slug: "decoration", weave: "drape", title: "Decoration fabrics", materials: ["Sunshade", "Blackout", "Backdrop", "Drapery", "Tulle"] },
-        { slug: "curtain", weave: "zebra", title: "Curtain fabrics", materials: ["Coated plain roller blinds", "Zebra", "Blackout"] },
-        { slug: "bed-linen", weave: "pinstripe", title: "Home textiles — bed linen", materials: ["Poly-cotton", "Microfiber bed sheets"] },
-        { slug: "home-knit-velvet", weave: "knit", title: "Home textiles — knit & velvet", materials: ["Polyester", "Viscose", "Knitted raschel", "Velvet"] },
-        { slug: "upholstery", weave: "velvet", title: "Upholstery fabrics", materials: ["Suede", "Raschel", "Velvet"] },
-        { slug: "mattress", weave: "quilt", title: "Mattress fabrics", materials: ["Polyester", "Viscose", "Cotton"] },
-      ],
-    },
-    {
-      id: "technical",
-      label: "Technical",
-      fabrics: [{ slug: "technical", weave: "ripstop", title: "Tent, furniture & banding fabrics", materials: ["Piece-dyed", "Yarn-dyed"] }],
     },
   ],
   interlude: {
@@ -124,11 +92,11 @@ const en: FabricsContent = {
 const fr: FabricsContent = {
   meta: {
     title: "Tissus",
-    description: "De la chemise à l’ameublement, des rideaux aux tissus techniques : les familles de tissus habillement, linge de maison et techniques de YEG Textile.",
+    description: "Tissus pour chemises, costumes, sportswear, vêtements d’extérieur fantaisie et vêtements de travail : les familles de tissus habillement de YEG Textile.",
   },
   eyebrow: "Tissus",
   title: "Tissus",
-  lead: "De l’habillement au linge de maison et aux tissus techniques — 12 familles de tissus.",
+  lead: "De la chemise au sportswear, du vêtement d’extérieur au vêtement de travail — 5 familles de tissus.",
   groupsLabel: "Familles",
   countLabel: "familles de tissus",
   materialsLabel: "Matières",
@@ -144,23 +112,6 @@ const fr: FabricsContent = {
         { slug: "workwear", weave: "canvas", title: "Tissus pour vêtements de travail", materials: ["Polyester", "Gabardine", "Toile", "Oxford"] },
       ],
     },
-    {
-      id: "home",
-      label: "Maison & Déco",
-      fabrics: [
-        { slug: "decoration", weave: "drape", title: "Tissus de décoration", materials: ["Pare-soleil", "Occultant", "Toile de fond", "Rideau", "Voilage"] },
-        { slug: "curtain", weave: "zebra", title: "Tissus pour rideaux & stores", materials: ["Stores enrouleurs enduits", "Zébra", "Occultant"] },
-        { slug: "bed-linen", weave: "pinstripe", title: "Linge de maison — literie", materials: ["Poly-coton", "Draps en microfibre"] },
-        { slug: "home-knit-velvet", weave: "knit", title: "Linge de maison — maille & velours", materials: ["Polyester", "Viscose", "Raschel tricoté", "Velours"] },
-        { slug: "upholstery", weave: "velvet", title: "Tissus d’ameublement", materials: ["Suédine", "Raschel", "Velours"] },
-        { slug: "mattress", weave: "quilt", title: "Tissus pour matelas", materials: ["Polyester", "Viscose", "Coton"] },
-      ],
-    },
-    {
-      id: "technical",
-      label: "Technique",
-      fabrics: [{ slug: "technical", weave: "ripstop", title: "Tissus pour tentes, mobilier & sangles", materials: ["Teint en pièce", "Teint en fil"] }],
-    },
   ],
   interlude: {
     lockup: ["FLAT.", "HARD.", "FINAL."],
@@ -173,7 +124,10 @@ const fr: FabricsContent = {
   cta: "Nous contacter",
 };
 
-const content = { en, tr, fr };
+const es = esJson as FabricsContent;
+const ru = ruJson as FabricsContent;
+
+const content = { en, tr, fr, es, ru };
 
 export type { FabricsContent };
 /** All languages, the defaults the admin edits on top of */

@@ -143,7 +143,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
           <div className="relative md:col-span-6">
             <ParallaxImage
               src={img.studio.url}
-              alt={{ tr: "YEG Textile atölyesi", en: "The YEG Textile studio", fr: "L’atelier YEG Textile" }[lang]}
+              alt={{ en: "The YEG Textile studio", es: "El taller de YEG Textile", ru: "Ателье YEG Textile", fr: "L’atelier YEG Textile" }[lang]}
               width={img.studio.width}
               height={img.studio.height}
               blur={img.studio.blur}
@@ -457,9 +457,9 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
           </Reveal>
 
           {/* Certificates as rubber stamps: double red ring, the issuer text running round, slightly tilted */}
-          <Reveal as="ul" stagger={0.06} className="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:grid-cols-6">
+          <Reveal as="ul" stagger={0.06} className="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:grid-cols-5">
             {a.quality.certs.map((c, i) => (
-              <li key={c.code} className="group flex flex-col items-center text-center">
+              <li key={i} className="group flex flex-col items-center text-center">
                 <div
                   className="relative aspect-square w-full max-w-[11rem] text-brand transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-0 group-hover:scale-105"
                   style={{ transform: `rotate(${[-8, 6, -4, 9, -6, 4][i % 6]}deg)` }}
@@ -545,7 +545,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
         <div className="relative isolate w-full overflow-hidden bg-ink" style={{ aspectRatio: `${img.global.width} / ${img.global.height}`, maxHeight: "80svh" }}>
           <Image
             src={img.global.url}
-            alt={{ tr: "Türkiye'den dünyaya YEG Textile", en: "YEG Textile, from Türkiye to the world", fr: "YEG Textile, de la Turquie au monde" }[lang]}
+            alt={{ en: "YEG Textile, from Türkiye to the world", es: "YEG Textile, de Türkiye al mundo", ru: "YEG Textile — из Турции в мир", fr: "YEG Textile, de la Turquie au monde" }[lang]}
             fill
             sizes="100vw"
             quality={95}

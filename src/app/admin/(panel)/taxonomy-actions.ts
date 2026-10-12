@@ -14,8 +14,9 @@ export async function saveTaxonomy(kind: Kind, id: string | null, fd: FormData) 
   await requireAdmin();
   const nameEn = str(fd, "nameEn");
   const nameTr = str(fd, "nameTr");
-  if (!nameEn || !nameTr) return;
-  const data = { nameEn, nameTr, nameFr: str(fd, "nameFr") || null, slug: slugify(str(fd, "slug") || nameEn), sortOrder: int(fd, "sortOrder") };
+  if (!nameEn) return;
+  const i18n = { es: str(fd, "nameEs") ? { name: str(fd, "nameEs") } : {}, ru: str(fd, "nameRu") ? { name: str(fd, "nameRu") } : {} };
+  const data = { nameEn, nameTr: nameTr || nameEn, nameFr: str(fd, "nameFr") || null, slug: slugify(str(fd, "slug") || nameEn), sortOrder: int(fd, "sortOrder"), i18n };
   try {
     if (kind === "category") {
       if (id) await db.category.update({ where: { id }, data });

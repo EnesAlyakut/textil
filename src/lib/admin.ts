@@ -40,3 +40,24 @@ export const lines = (fd: FormData, key: string) =>
     .filter(Boolean);
 
 export type ActionState = { ok?: boolean; error?: string; message?: string };
+
+/**
+ * Spanish / Russian fields of a form (`nameEs`, `featuresRu`…) as the `i18n` JSON stored on database rows.
+ * Empty fields are left out, so the site falls back to English for them.
+ */
+export function formI18n(fd: FormData, listFields: string[] = []) {
+  const out: Record<"es" | "ru", Record<string, string | string[]>> = { es: {}, ru: {} };
+  for (const key of new Set(fd.keys())) {
+    const m = key.match(/^([a-zA-Z]+)(Es|Ru)$/);
+    if (!m) continue;
+    const [, field, suffix] = m;
+    const lang = suffix === "Es" ? "es" : "ru";
+    if (listFields.includes(field)) {
+      const items = lines(fd, key);
+      if (items.length) out[lang][field] = items;
+    } else if (str(fd, key)) {
+      out[lang][field] = str(fd, key);
+    }
+  }
+  return out;
+}

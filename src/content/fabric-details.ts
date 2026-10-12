@@ -1,5 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import type { FabricSlug } from "./fabrics";
+import esJson from "./i18n/fabric-details.es.json";
+import ruJson from "./i18n/fabric-details.ru.json";
 
 /**
  * Detail copy for each fabric page (/fabrics/[slug]). The source site only listed titles and materials,
@@ -855,8 +857,12 @@ const fr: Record<FabricSlug, FabricDetail> = {
   },
 };
 
-const details = { tr, en, fr };
-const labels = { tr: trLabels, en: enLabels, fr: frLabels };
+// Spanish and Russian cover the fabrics still on the site
+const es = esJson.details as Record<FabricSlug, FabricDetail>;
+const ru = ruJson.details as Record<FabricSlug, FabricDetail>;
+
+const details = { tr, en, fr, es, ru };
+const labels = { tr: trLabels, en: enLabels, fr: frLabels, es: esJson.labels as DetailLabels, ru: ruJson.labels as DetailLabels };
 
 export const getFabricDetail = (lang: Locale, slug: FabricSlug) => details[lang][slug];
 export const getFabricLabels = (lang: Locale) => labels[lang];

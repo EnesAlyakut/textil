@@ -3,7 +3,7 @@ import { FormShell } from "@/components/admin/FormShell";
 import { GalleryField } from "@/components/admin/GalleryField";
 import { SlugInput } from "@/components/admin/SlugInput";
 import { SpecsField } from "@/components/admin/SpecsField";
-import { Bilingual, Card, Checkbox, Field, Input, Select } from "@/components/admin/ui";
+import { Bilingual, Card, Checkbox, Field, Input, Select, lv } from "@/components/admin/ui";
 import { readSpecs } from "@/lib/queries";
 import { saveProduct } from "./actions";
 
@@ -24,10 +24,10 @@ export function ProductForm({ product, categories, collections, currency }: Prop
       <div className="grid gap-6 xl:grid-cols-[1fr_360px]">
         <div className="space-y-6">
           <Card title="Temel bilgiler">
-            <Bilingual label="Ürün adı *" name="name" en={product?.nameEn} tr={product?.nameTr} fr={product?.nameFr} required />
+            <Bilingual label="Ürün adı *" name="name" en={product?.nameEn} tr={product?.nameTr} fr={product?.nameFr} es={lv(product, "name", "es")} ru={lv(product, "name", "ru")} required />
             <SlugInput defaultValue={product?.slug} sourceName="nameEn" prefix="/products/" />
-            <Bilingual label="Kısa açıklama" name="short" en={product?.shortEn} tr={product?.shortTr} fr={product?.shortFr} textarea rows={2} hint="Kartlarda ve SEO açıklaması boşsa meta açıklamada kullanılır." />
-            <Bilingual label="Ürün açıklaması" name="description" en={product?.descriptionEn} tr={product?.descriptionTr} fr={product?.descriptionFr} textarea rows={6} />
+            <Bilingual label="Kısa açıklama" name="short" en={product?.shortEn} tr={product?.shortTr} fr={product?.shortFr} es={lv(product, "short", "es")} ru={lv(product, "short", "ru")} textarea rows={2} hint="Kartlarda ve SEO açıklaması boşsa meta açıklamada kullanılır." />
+            <Bilingual label="Ürün açıklaması" name="description" en={product?.descriptionEn} tr={product?.descriptionTr} fr={product?.descriptionFr} es={lv(product, "description", "es")} ru={lv(product, "description", "ru")} textarea rows={6} />
           </Card>
 
           <Card title="Görseller" description="İlk / ana görsel ürün kartlarında kullanılır. Ek galeri görselleri detay sayfasında gösterilir.">
@@ -50,9 +50,9 @@ export function ProductForm({ product, categories, collections, currency }: Prop
           </Card>
 
           <Card title="Materyal & özellikler">
-            <Bilingual label="Materyal" name="material" en={product?.materialEn} tr={product?.materialTr} fr={product?.materialFr} />
-            <Bilingual label="Renk" name="color" en={product?.colorEn} tr={product?.colorTr} fr={product?.colorFr} />
-            <Bilingual label="Özellikler" name="features" en={list(product?.featuresEn)} tr={list(product?.featuresTr)} fr={list(product?.featuresFr)} textarea rows={5} hint="Her satıra bir özellik yazın." />
+            <Bilingual label="Materyal" name="material" en={product?.materialEn} tr={product?.materialTr} fr={product?.materialFr} es={lv(product, "material", "es")} ru={lv(product, "material", "ru")} />
+            <Bilingual label="Renk" name="color" en={product?.colorEn} tr={product?.colorTr} fr={product?.colorFr} es={lv(product, "color", "es")} ru={lv(product, "color", "ru")} />
+            <Bilingual label="Özellikler" name="features" en={list(product?.featuresEn)} tr={list(product?.featuresTr)} fr={list(product?.featuresFr)} es={lv(product, "features", "es")} ru={lv(product, "features", "ru")} textarea rows={5} hint="Her satıra bir özellik yazın." />
           </Card>
 
           <Card title="Teknik bilgiler" description="Detay sayfasındaki teknik tablo.">
@@ -60,8 +60,8 @@ export function ProductForm({ product, categories, collections, currency }: Prop
           </Card>
 
           <Card title="SEO">
-            <Bilingual label="SEO başlığı" name="seoTitle" en={product?.seoTitleEn} tr={product?.seoTitleTr} fr={product?.seoTitleFr} hint="Boş bırakılırsa ürün adı kullanılır. ~60 karakter." />
-            <Bilingual label="SEO açıklaması" name="seoDescription" en={product?.seoDescriptionEn} tr={product?.seoDescriptionTr} fr={product?.seoDescriptionFr} textarea rows={3} hint="~155 karakter." />
+            <Bilingual label="SEO başlığı" name="seoTitle" en={product?.seoTitleEn} tr={product?.seoTitleTr} fr={product?.seoTitleFr} es={lv(product, "seoTitle", "es")} ru={lv(product, "seoTitle", "ru")} hint="Boş bırakılırsa ürün adı kullanılır. ~60 karakter." />
+            <Bilingual label="SEO açıklaması" name="seoDescription" en={product?.seoDescriptionEn} tr={product?.seoDescriptionTr} fr={product?.seoDescriptionFr} es={lv(product, "seoDescription", "es")} ru={lv(product, "seoDescription", "ru")} textarea rows={3} hint="~155 karakter." />
           </Card>
         </div>
 
@@ -90,7 +90,7 @@ export function ProductForm({ product, categories, collections, currency }: Prop
                 <option value="">—</option>
                 {categories.map((c) => (
                   <option key={c.id} value={c.id}>
-                    {c.nameTr} / {c.nameEn}
+                    {c.nameEn}
                   </option>
                 ))}
               </Select>
@@ -100,7 +100,7 @@ export function ProductForm({ product, categories, collections, currency }: Prop
                 <option value="">—</option>
                 {collections.map((c) => (
                   <option key={c.id} value={c.id}>
-                    {c.nameTr} / {c.nameEn}
+                    {c.nameEn}
                   </option>
                 ))}
               </Select>

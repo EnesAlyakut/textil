@@ -12,8 +12,9 @@ type Obj = { [k: string]: Json };
 type Path = (string | number)[];
 
 const LANGS = [
-  { key: "tr", label: "Türkçe" },
   { key: "en", label: "English" },
+  { key: "es", label: "Español" },
+  { key: "ru", label: "Русский" },
   { key: "fr", label: "Français" },
 ] as const;
 const isLang = (k: string) => LANGS.some((l) => l.key === k);
@@ -367,7 +368,7 @@ type Props = { pageKey: string; initial: unknown; action: (prev: ActionState, fd
  */
 export function ContentEditor({ pageKey, initial, action }: Props) {
   const [data, setData] = useState<Obj>(initial as Obj);
-  const [tab, setTab] = useState<string>("tr");
+  const [tab, setTab] = useState<string>("en");
   const [section, setSection] = useState<string | null>(null);
   const onChange = (p: Path, v: Json) => setData((d) => setIn(d, p, v) as Obj);
   const hidden = HIDDEN[pageKey] ?? [];

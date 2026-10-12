@@ -14,9 +14,11 @@ export async function saveSettings(_prev: ActionState, fd: FormData): Promise<Ac
     phone: str(fd, "phone"),
     whatsapp: str(fd, "whatsapp"),
     addressEn: str(fd, "addressEn"),
-    addressTr: str(fd, "addressTr"),
+    addressTr: str(fd, "addressEn"),
     addressFr: str(fd, "addressFr"),
     instagram: str(fd, "instagram").replace(/^@/, ""),
+    linkedin: str(fd, "linkedin"),
+    facebook: str(fd, "facebook"),
     mapUrl: str(fd, "mapUrl"),
   };
   const currency = str(fd, "currency").toUpperCase() || "USD";

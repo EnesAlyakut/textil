@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { localePath, locales, type Locale } from "@/i18n/config";
 import { SITE_URL } from "./site";
 
-const OG_LOCALE: Record<Locale, string> = { en: "en_US", tr: "tr_TR", fr: "fr_FR" };
+const OG_LOCALE: Record<Locale, string> = { en: "en_US", es: "es_ES", ru: "ru_RU", fr: "fr_FR" };
 
 type BuildMeta = {
   lang: Locale;
@@ -32,7 +32,8 @@ export function buildMetadata({ lang, path, title, description, image, type = "w
       canonical: canonicalUrl,
       languages: {
         en: absoluteUrl(localePath("en", path)),
-        tr: absoluteUrl(localePath("tr", path)),
+        es: absoluteUrl(localePath("es", path)),
+        ru: absoluteUrl(localePath("ru", path)),
         fr: absoluteUrl(localePath("fr", path)),
         "x-default": absoluteUrl(localePath("en", path)),
       },

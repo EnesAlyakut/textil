@@ -50,7 +50,8 @@ export default async function ProductPage({ params }: PageProps<"/[lang]/product
   const wa = settings.contact.whatsapp.replace(/[^\d]/g, "");
   const waIntro = {
     en: "Hello, I'd like more information about",
-    tr: "Merhaba, şu ürün hakkında bilgi almak istiyorum",
+    es: "Hola, me gustaría recibir más información sobre",
+    ru: "Здравствуйте, я хотел бы получить больше информации о",
     fr: "Bonjour, je souhaiterais plus d'informations sur",
   }[lang];
   const waText = encodeURIComponent(`${waIntro}: ${name} (${product.code ?? product.slug})`);

@@ -135,7 +135,7 @@ async function renderSection(key: HomepageKey, s: Partial<HomepageSections>, { l
       const arranged = arrangeFeatured(cards);
       return (
         <Fragment key={key}>
-          <section className="container-x pb-16 pt-20 md:pb-24 md:pt-28">
+          <section className="container-x pb-16 pt-10 md:pb-24 md:pt-12">
             <SectionHeading
               index={next()}
               eyebrow={dict.home.featuredEyebrow}
@@ -356,7 +356,9 @@ async function renderSection(key: HomepageKey, s: Partial<HomepageSections>, { l
             season: pick(col, "season", lang),
             tagline: pick(col, "tagline", lang),
             count: `${col._count.products} ${col._count.products === 1 ? dict.common.piece : dict.common.pieces}`,
-            image: col.coverUrl
+            image: c.covers?.[col.slug]
+              ? { blur: null, position: "50% 50%", ...c.covers[col.slug]! }
+              : col.coverUrl
               ? {
                   url: col.coverUrl,
                   width: col.coverWidth ?? 1600,

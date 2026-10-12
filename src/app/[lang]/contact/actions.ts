@@ -11,7 +11,7 @@ const schema = z.object({
   company: z.string().trim().max(160).optional().or(z.literal("")),
   message: z.string().trim().min(10).max(5000),
   subject: z.string().trim().max(200).optional().or(z.literal("")),
-  locale: z.enum(["en", "tr", "fr"]),
+  locale: z.enum(["en", "es", "ru", "fr", "tr"]),
   // Honeypot: real users never see or fill this field.
   website: z.string().max(0).optional().or(z.literal("")),
 });

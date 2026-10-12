@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitText } from "@/components/motion/SplitText";
 import { ContactForm } from "@/components/site/ContactForm";
-import { InstagramIcon, MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "@/components/site/ContactIcons";
+import { FacebookIcon, InstagramIcon, LinkedInIcon, MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "@/components/site/ContactIcons";
 import { Glow } from "@/components/site/Glow";
 import { JsonLdScript } from "@/components/site/JsonLdScript";
 import { LocationsMap, type MapLocation } from "@/components/site/LocationsMap";
@@ -56,12 +56,17 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
   const address = pick(contact, "address", lang);
   const mapHref = contact.mapUrl || `https://maps.google.com/?q=${encodeURIComponent(address)}`;
 
+  // Channels left empty in Settings (e.g. the phone) are not shown
+  const handle = (url: string) => url.replace(/\/+$/, "").split("/").pop() ?? url;
   const channels = [
-    { label: copy.email, value: contact.email, href: `mailto:${contact.email}`, Icon: MailIcon },
-    { label: c.phone, value: contact.phone, href: `tel:${contact.phone.replace(/\s/g, "")}`, Icon: PhoneIcon },
-    { label: c.whatsapp, value: contact.whatsapp, href: `https://wa.me/${wa}`, Icon: WhatsAppIcon, external: true },
-    { label: c.instagram, value: `@${contact.instagram}`, href: `https://instagram.com/${contact.instagram}`, Icon: InstagramIcon, external: true },
-  ];
+    { label: copy.email, value: contact.email, href: `mailto:${contact.email}`, Icon: MailIcon, show: true },
+    { label: c.phone, value: contact.phone, href: `tel:${contact.phone.replace(/\s/g, "")}`, Icon: PhoneIcon, show: !!contact.phone },
+    { label: c.whatsapp, value: contact.whatsapp, href: `https://wa.me/${wa}`, Icon: WhatsAppIcon, external: true, show: !!wa },
+    { label: c.instagram, value: `@${contact.instagram}`, href: `https://instagram.com/${contact.instagram}`, Icon: InstagramIcon, external: true, show: !!contact.instagram },
+    { label: "LinkedIn", value: handle(contact.linkedin ?? ""), href: contact.linkedin ?? "", Icon: LinkedInIcon, external: true, show: !!contact.linkedin },
+    { label: "Facebook", value: handle(contact.facebook ?? ""), href: contact.facebook ?? "", Icon: FacebookIcon, external: true, show: !!contact.facebook },
+  ].filter((ch) => ch.show);
+  const cols = { 3: "lg:grid-cols-3", 4: "lg:grid-cols-4", 5: "lg:grid-cols-5", 6: "lg:grid-cols-3" }[channels.length] ?? "lg:grid-cols-4";
 
   // Same four sites as the About page; Florida is a state, so it gets a wider zoom.
   const locations: MapLocation[] = a.global.locations.map((l) => ({
@@ -69,9 +74,14 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
     country: l.country,
     role: l.role,
     lang: l.lang,
-    // Denizli has a street address (the production centre); the others are shown at city level.
-    query: l.city === "Denizli" ? `${PRODUCTION_ADDRESS}, ${l.country}` : `${l.city}, ${l.country}`,
-    zoom: l.city === "Denizli" ? 15 : l.city === "Florida" || l.city === "Floride" ? 6 : 11,
+    address: l.address,
+    // The street address (editable in the admin) pins the map; without one the city is shown.
+    query: l.address
+      ? l.address.replace(/\s+\/\s+/g, ", ")
+      : l.city === "Denizli"
+        ? `${PRODUCTION_ADDRESS}, ${l.country}`
+        : `${l.city}, ${l.country}`,
+    zoom: l.address ? 16 : l.city === "Denizli" ? 15 : l.city === "Florida" || l.city === "Floride" ? 6 : 11,
   }));
 
   return (
@@ -95,7 +105,7 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
 
       {/* ———————————————— channels: four large cards that fill red on hover */}
       <section className="container-x pb-20 md:pb-28" aria-label={c.channels}>
-        <Reveal as="ul" stagger={0.07} className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal as="ul" stagger={0.07} className={`grid gap-px border border-line bg-line sm:grid-cols-2 ${cols}`}>
           {channels.map(({ label, value, href, Icon, external }) => (
             <li key={label} className="bg-ink">
               <a

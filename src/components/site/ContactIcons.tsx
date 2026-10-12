@@ -47,3 +47,20 @@ export function PinIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function LinkedInIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg aria-hidden {...base} {...props}>
+      <rect x="3" y="3" width="18" height="18" rx="3" />
+      <path d="M7.5 10.5v6M7.5 7.5v.01M11.5 16.5v-6M11.5 13a2.5 2.5 0 0 1 5 0v3.5" />
+    </svg>
+  );
+}
+
+export function FacebookIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg aria-hidden {...base} {...props}>
+      <path d="M14.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4a21 21 0 0 0-2.4-.1c-2.4 0-4 1.4-4 4.1v2.1H8.6v3h2.7V21" />
+    </svg>
+  );
+}

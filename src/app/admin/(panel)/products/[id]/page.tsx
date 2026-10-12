@@ -23,7 +23,7 @@ export default async function EditProduct({ params, searchParams }: PageProps<"/
   return (
     <>
       <PageTitle
-        title={product.nameTr}
+        title={product.nameEn}
         description={created ? "Ürün oluşturuldu ✓" : product.nameEn}
         actions={
           <>

@@ -131,7 +131,7 @@ function ManifestoEditorial({
   );
 
   return (
-    <section ref={root} className="relative isolate overflow-hidden bg-ink py-28 md:py-40">
+    <section ref={root} className="relative isolate overflow-hidden bg-ink pb-10 pt-28 md:pb-14 md:pt-40">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(45%_40%_at_85%_35%,rgba(143,0,0,0.22),transparent_75%)]" />
 
       <div className="container-x">

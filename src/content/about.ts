@@ -1,6 +1,8 @@
 import manifest from "@/data/media-manifest.json";
 import type { Locale } from "@/i18n/config";
 import { importedImage } from "./production";
+import esJson from "./i18n/about.es.json";
+import ruJson from "./i18n/about.ru.json";
 
 const m = (key: keyof typeof manifest, position = "50% 50%") => {
   const x = manifest[key];
@@ -109,11 +111,11 @@ const tr = {
     title: ["YEG TEXTILE’in farklı ürün gruplarındaki ", "aylık üretim kapasitesi:"],
     unit: "adet",
     stats: [
-      { value: "300.000", label: "T-Shirt" },
-      { value: "150.000", label: "Gömlek & Dokuma Ürünler" },
-      { value: "100.000", label: "Hoodie & Sweatshirt" },
-      { value: "100.000", label: "Denim Pantolon & Ceket" },
-      { value: "100.000", label: "Triko" },
+      { value: "30.000", label: "T-Shirt" },
+      { value: "15.000", label: "Gömlek & Dokuma Ürünler" },
+      { value: "10.000", label: "Hoodie & Sweatshirt" },
+      { value: "10.000", label: "Denim Pantolon & Ceket" },
+      { value: "10.000", label: "Triko" },
     ],
     paragraphs: [
       "Bu rakamların arkasında yalnızca üretim hattı bulunmuyor.",
@@ -163,12 +165,15 @@ const tr = {
     purpose: "Bu sistemin amacı yalnızca hatayı bulmak değil. *Mümkün olduğunca erken fark etmek.*",
     certsIntro: "YEG Textile’in sahip olduğu yönetim sistemleri ve sertifikasyonlar bu çalışma disiplinini destekliyor:",
     certs: [
+      { code: "ISO 10002:2018", label: "Müşteri Memnuniyeti Yönetim Sistemi" },
+      { code: "ISO 22716:2013", label: "GMP – İyi Üretim Uygulamaları" },
       { code: "ISO 9001:2015", label: "Kalite Yönetim Sistemi" },
       { code: "ISO 14001:2015", label: "Çevre Yönetim Sistemi" },
       { code: "ISO 45001:2018", label: "İş Sağlığı ve Güvenliği Yönetim Sistemi" },
-      { code: "ISO 10002:2018", label: "Müşteri Memnuniyeti Yönetim Sistemi" },
-      { code: "GMP", label: "İyi Üretim Uygulamaları" },
-      { code: "OEKO-TEX", label: "Standard 100" },
+      { code: "ETKO Scope", label: "Organik Tekstil Sertifikası" },
+      { code: "ETKO Scope", label: "GRS, OCS, RCS Sertifikası" },
+      { code: "SMETA", label: "Sedex Üyeleri Etik Ticaret Denetim Raporu" },
+      { code: "OEKO-TEX®", label: "STANDARD 100 – Sınıf 1 Tekstil Ürünü" },
     ],
     outro: "Bunun yanında organik ve geri dönüştürülmüş kumaş seçenekleri ile ekolojik yıkama teknikleri üzerinde de çalışıyoruz.",
   },
@@ -201,10 +206,10 @@ const tr = {
     ],
     today: "Bugün farklı operasyon noktalarımızla müşterilerimize daha yakın bir çalışma modeli kuruyoruz.",
     locations: [
-      { city: "Denizli", country: "Türkiye", role: "Üretim ve ana operasyon", lang: "tr" },
-      { city: "İstanbul", country: "Türkiye", role: "Üretim ve tedarik ağı", lang: "tr" },
-      { city: "Florida", country: "USA", role: "Uluslararası ticari yapılanma", lang: "en" },
-      { city: "Vancouver", country: "Canada", role: "Uluslararası operasyon", lang: "en" },
+      { city: "Denizli", country: "Türkiye", role: "Üretim ve ana operasyon", lang: "tr", address: "Zafer Mh. 6/2487 Sk. No:29, Merkezefendi / Denizli / Türkiye" },
+      { city: "İstanbul", country: "Türkiye", role: "Üretim ve tedarik ağı", lang: "tr", address: "Uğur Mumcu Mah. 2347 Sok. No:9/A, Sultangazi / İstanbul / Türkiye" },
+      { city: "Florida", country: "USA", role: "Uluslararası ticari yapılanma", lang: "en", address: "7901 4th St N Ste 300, St. Petersburg, FL 33702 / USA" },
+      { city: "Vancouver", country: "Canada", role: "Uluslararası operasyon", lang: "en", address: "33 Commercial Dr, Vancouver, BC V5L 0A2 / Canada" },
     ],
     outro: "Türkiye’deki üretim gücümüzü, farklı pazarlardaki ticari yapılanmamızla birlikte büyütmeye devam ediyoruz.",
   },
@@ -312,11 +317,11 @@ const en: AboutContent = {
     title: ["YEG TEXTILE’s monthly production capacity ", "across product groups:"],
     unit: "units",
     stats: [
-      { value: "300,000", label: "T-Shirts" },
-      { value: "150,000", label: "Shirts & Woven Products" },
-      { value: "100,000", label: "Hoodies & Sweatshirts" },
-      { value: "100,000", label: "Denim Trousers & Jackets" },
-      { value: "100,000", label: "Knitwear" },
+      { value: "30,000", label: "T-Shirts" },
+      { value: "15,000", label: "Shirts & Woven Products" },
+      { value: "10,000", label: "Hoodies & Sweatshirts" },
+      { value: "10,000", label: "Denim Trousers & Jackets" },
+      { value: "10,000", label: "Knitwear" },
     ],
     paragraphs: [
       "Behind these figures there is more than a production line.",
@@ -366,12 +371,15 @@ const en: AboutContent = {
     purpose: "The purpose of this system isn’t only to find mistakes. *It is to notice them as early as possible.*",
     certsIntro: "The management systems and certifications held by YEG Textile support this way of working:",
     certs: [
+      { code: "ISO 10002:2018", label: "Customer Satisfaction Management System" },
+      { code: "ISO 22716:2013", label: "GMP – Good Manufacturing Practices" },
       { code: "ISO 9001:2015", label: "Quality Management System" },
       { code: "ISO 14001:2015", label: "Environmental Management System" },
       { code: "ISO 45001:2018", label: "Occupational Health and Safety Management System" },
-      { code: "ISO 10002:2018", label: "Customer Satisfaction Management System" },
-      { code: "GMP", label: "Good Manufacturing Practice" },
-      { code: "OEKO-TEX", label: "Standard 100" },
+      { code: "ETKO Scope", label: "Organic Textile Certification" },
+      { code: "ETKO Scope", label: "GRS, OCS, RCS Certification" },
+      { code: "SMETA", label: "Sedex Members Ethical Trade Audit Report" },
+      { code: "OEKO-TEX®", label: "STANDARD 100 – Class 1 Textile Product" },
     ],
     outro: "Alongside this, we are working on organic and recycled fabric options and on eco-friendly washing techniques.",
   },
@@ -404,10 +412,10 @@ const en: AboutContent = {
     ],
     today: "Today, with our different operating locations, we are building a way of working that keeps us closer to our customers.",
     locations: [
-      { city: "Denizli", country: "Türkiye", role: "Production and main operations", lang: "en" },
-      { city: "Istanbul", country: "Türkiye", role: "Production and supply network", lang: "en" },
-      { city: "Florida", country: "USA", role: "International commercial structure", lang: "en" },
-      { city: "Vancouver", country: "Canada", role: "International operations", lang: "en" },
+      { city: "Denizli", country: "Türkiye", role: "Production and main operations", lang: "en", address: "Zafer Mh. 6/2487 Sk. No:29, Merkezefendi / Denizli / Türkiye" },
+      { city: "Istanbul", country: "Türkiye", role: "Production and supply network", lang: "en", address: "Uğur Mumcu Mah. 2347 Sok. No:9/A, Sultangazi / İstanbul / Türkiye" },
+      { city: "Florida", country: "USA", role: "International commercial structure", lang: "en", address: "7901 4th St N Ste 300, St. Petersburg, FL 33702 / USA" },
+      { city: "Vancouver", country: "Canada", role: "International operations", lang: "en", address: "33 Commercial Dr, Vancouver, BC V5L 0A2 / Canada" },
     ],
     outro: "We continue to grow our production strength in Türkiye together with our commercial presence in different markets.",
   },
@@ -513,11 +521,11 @@ const fr: AboutContent = {
     title: ["Capacité de production mensuelle de YEG TEXTILE ", "par famille de produits :"],
     unit: "pièces",
     stats: [
-      { value: "300 000", label: "T-shirts" },
-      { value: "150 000", label: "Chemises et produits chaîne et trame" },
-      { value: "100 000", label: "Hoodies et sweatshirts" },
-      { value: "100 000", label: "Pantalons et vestes en denim" },
-      { value: "100 000", label: "Tricot" },
+      { value: "30 000", label: "T-shirts" },
+      { value: "15 000", label: "Chemises et produits chaîne et trame" },
+      { value: "10 000", label: "Hoodies et sweatshirts" },
+      { value: "10 000", label: "Pantalons et vestes en denim" },
+      { value: "10 000", label: "Tricot" },
     ],
     paragraphs: [
       "Derrière ces chiffres, il n’y a pas qu’une ligne de production.",
@@ -567,12 +575,15 @@ const fr: AboutContent = {
     purpose: "Le but de ce système n’est pas seulement de trouver les erreurs. *C’est de les repérer le plus tôt possible.*",
     certsIntro: "Les systèmes de management et certifications détenus par YEG Textile soutiennent cette discipline de travail :",
     certs: [
+      { code: "ISO 10002:2018", label: "Système de management de la satisfaction client" },
+      { code: "ISO 22716:2013", label: "BPF – Bonnes pratiques de fabrication" },
       { code: "ISO 9001:2015", label: "Système de management de la qualité" },
       { code: "ISO 14001:2015", label: "Système de management environnemental" },
       { code: "ISO 45001:2018", label: "Système de management de la santé et de la sécurité au travail" },
-      { code: "ISO 10002:2018", label: "Système de management de la satisfaction client" },
-      { code: "GMP", label: "Bonnes pratiques de fabrication" },
-      { code: "OEKO-TEX", label: "Standard 100" },
+      { code: "ETKO Scope", label: "Certification textile biologique" },
+      { code: "ETKO Scope", label: "Certification GRS, OCS, RCS" },
+      { code: "SMETA", label: "Rapport d’audit éthique Sedex (SMETA)" },
+      { code: "OEKO-TEX®", label: "STANDARD 100 – Produit textile de classe 1" },
     ],
     outro: "Nous travaillons également sur des options de tissus biologiques et recyclés, ainsi que sur des techniques de lavage écologiques.",
   },
@@ -605,10 +616,10 @@ const fr: AboutContent = {
     ],
     today: "Aujourd’hui, avec nos différents sites d’opération, nous construisons un modèle de travail plus proche de nos clients.",
     locations: [
-      { city: "Denizli", country: "Turquie", role: "Production et opérations principales", lang: "fr" },
-      { city: "Istanbul", country: "Turquie", role: "Production et réseau d’approvisionnement", lang: "fr" },
-      { city: "Floride", country: "USA", role: "Structure commerciale internationale", lang: "fr" },
-      { city: "Vancouver", country: "Canada", role: "Opérations internationales", lang: "fr" },
+      { city: "Denizli", country: "Turquie", role: "Production et opérations principales", lang: "fr", address: "Zafer Mh. 6/2487 Sk. No:29, Merkezefendi / Denizli / Türkiye" },
+      { city: "Istanbul", country: "Turquie", role: "Production et réseau d’approvisionnement", lang: "fr", address: "Uğur Mumcu Mah. 2347 Sok. No:9/A, Sultangazi / İstanbul / Türkiye" },
+      { city: "Floride", country: "USA", role: "Structure commerciale internationale", lang: "fr", address: "7901 4th St N Ste 300, St. Petersburg, FL 33702 / USA" },
+      { city: "Vancouver", country: "Canada", role: "Opérations internationales", lang: "fr", address: "33 Commercial Dr, Vancouver, BC V5L 0A2 / Canada" },
     ],
     outro: "Nous continuons de faire grandir notre force de production en Turquie avec notre structure commerciale sur différents marchés.",
   },
@@ -636,7 +647,10 @@ const fr: AboutContent = {
   cta: "Contacter le studio",
 };
 
-const content = { en, tr, fr };
+const es = esJson as AboutContent;
+const ru = ruJson as AboutContent;
+
+const content = { en, tr, fr, es, ru };
 
 export const getAbout = (lang: Locale) => content[lang];
 /** All languages, the defaults the admin edits on top of */

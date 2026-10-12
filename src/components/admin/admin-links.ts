@@ -65,7 +65,7 @@ export const ALL_ADMIN_LINKS = ADMIN_GROUPS.flatMap((g) => g.items.map((i) => ({
 
 /** Which admin screen edits a given public page (path without the language prefix). */
 export function adminHrefForPath(path: string): string {
-  const p = path.replace(/^\/(tr|fr)(?=\/|$)/, "") || "/";
+  const p = path.replace(/^\/(en|es|ru|fr|tr)(?=\/|$)/, "") || "/";
   if (p === "/") return "/admin/homepage";
   if (p.startsWith("/about")) return "/admin/pages/about";
   if (p.startsWith("/production")) return "/admin/pages/production";

@@ -1,0 +1,132 @@
+{
+  "labels": {
+    "back": "Todos los tejidos",
+    "view": "Detalles",
+    "structure": "Estructura",
+    "group": "Familia",
+    "overview": "Descripción general",
+    "features": "Puntos clave",
+    "materials": "Materiales",
+    "uses": "Usos",
+    "finishes": "Acabados",
+    "finishesNote": "Disponibles bajo pedido, según la calidad.",
+    "prev": "Tejido anterior",
+    "next": "Tejido siguiente",
+    "related": "De la misma familia",
+    "sampleTitle": "Solicita una muestra de este tejido",
+    "sampleText": "Cuéntanos el uso final, la cantidad y el color que esperas; prepararemos la calidad adecuada y una muestra para ti.",
+    "sampleCta": "Solicitar una muestra",
+    "enquiry": "Consulta de tejido"
+  },
+  "details": {
+    "shirt": {
+      "structure": "Ligamentos lisos, dobby y teñidos en hilo",
+      "lead": "La base de toda camisa, de la informal a la formal: tejidos planos que transpiran, se planchan bien y mantienen su color y su forma.",
+      "body": [
+        "Los tejidos de camisería pasan más tiempo en contacto con la piel que cualquier otro, por eso el tacto, la transpirabilidad y la forma tras el lavado importan tanto como el dibujo. Trabajamos una amplia gama: desde ligamentos lisos hasta pequeñas estructuras dobby y cuadros y rayas teñidos en hilo.",
+        "Las mezclas de poliéster, algodón y viscosa reúnen en un solo tejido la naturalidad del algodón, la resistencia del poliéster y la caída fluida de la viscosa. La proporción de la mezcla se define juntos, según el uso de la camisa: oficina, uniforme o colección casual."
+      ],
+      "features": [
+        { "title": "Estructura transpirable", "text": "Ligamentos densos pero aireados que mantienen la comodidad todo el día." },
+        { "title": "Dibujo duradero", "text": "En los cuadros y rayas teñidos en hilo el color no está estampado: está en el propio hilo." },
+        { "title": "Fácil cuidado", "text": "Las calidades mezcladas se arrugan menos y se secan más rápido." }
+      ],
+      "uses": ["Camisas clásicas e informales", "Camisas de uniforme corporativo", "Blusas y túnicas", "Sobrecamisas", "Pijamas y ropa de casa"],
+      "materialNotes": [
+        "Una superficie lisa y limpia; una base perfecta para estampados y bordados.",
+        "Pequeñas figuras geométricas tejidas en telar dobby; una textura que se aprecia de cerca.",
+        "El hilo se tiñe antes de tejer, por lo que los colores se mantienen vivos durante más tiempo.",
+        "Cuadros y rayas creados con hilos de color en urdimbre y trama.",
+        "Una mezcla que equilibra resistencia, naturalidad y una caída suave."
+      ],
+      "finishes": ["Acabado de fácil cuidado", "Acabado suavizante", "Sanforizado (antiencogimiento)", "Acabado antimanchas"]
+    },
+    "suit-trouser": {
+      "structure": "Ligamentos sarga y gabardina",
+      "lead": "Una raya marcada, una caída limpia y una estructura que mantiene la forma todo el día: tejidos planos para trajes y pantalones.",
+      "body": [
+        "Lo que se espera de los tejidos para trajes y pantalones está claro: deben sentar bien, no formar bolsas en rodillas ni asiento y mantener la raya planchada. Por eso trabajamos sobre todo con estructuras de sarga diagonal, que dan al tejido resistencia y su característica textura en diagonal.",
+        "Las mezclas de poliéster y viscosa ofrecen una superficie fluida y resistente a las arrugas, mientras que las calidades de algodón aportan un aspecto más natural, mate y transpirable. Las opciones elásticas con elastano dan libertad de movimiento a los pantalones de corte relajado."
+      ],
+      "features": [
+        { "title": "Mantiene la forma", "text": "Una estructura resistente a las arrugas conserva la línea y la silueta todo el día." },
+        { "title": "Superficie fluida", "text": "La viscosa aporta peso y una caída fluida." },
+        { "title": "Pesos para cada temporada", "text": "Desde calidades ligeras de verano hasta otras de invierno con más cuerpo." }
+      ],
+      "uses": ["Trajes y americanas", "Pantalones de vestir y chinos", "Faldas y vestidos", "Ropa corporativa y de personal", "Chalecos"],
+      "materialNotes": [
+        "Resistente a las arrugas y a la abrasión; mantiene su color durante mucho tiempo.",
+        "De base celulósica; tacto suave, brillo delicado y caída fluida.",
+        "Natural, transpirable y mate; para chinos y pantalones informales."
+      ],
+      "finishes": ["Acabado antiarrugas", "Opciones elásticas (elastano)", "Acabado hidrófugo (DWR)", "Superficie perchada (peach)"]
+    },
+    "sportswear": {
+      "structure": "Estructuras de punto, malla y raschel",
+      "lead": "Tejidos que se mueven contigo: tejidos deportivos elásticos, que gestionan el sudor, se secan rápido y son ligeros.",
+      "body": [
+        "En la ropa deportiva, el tejido es la segunda piel del deportista. Los puntos de poliéster y nailon llevan la humedad a la superficie y se secan rápido; las zonas de malla ventilan y el polar añade una ligera capa de calor cuando hace frío.",
+        "De camisetas de entrenamiento a chándales, de equipaciones a capas intermedias para exterior, cada producto necesita una estructura distinta. Hablamos del uso —intensidad, clima, frecuencia de lavado— y elegimos juntos la fibra y el punto adecuados."
+      ],
+      "features": [
+        { "title": "Gestión de la humedad", "text": "Estructuras sintéticas que alejan el sudor de la piel y se secan rápido." },
+        { "title": "Elasticidad", "text": "Las estructuras de punto y el elastano dejan el movimiento libre." },
+        { "title": "Ligereza", "text": "Calidades de malla y microfibra que apenas se notan." }
+      ],
+      "uses": ["Camisetas y tirantes de entrenamiento", "Chándales y joggers", "Equipaciones", "Sudaderas polares y capas intermedias", "Mallas y sujetadores deportivos", "Ropa de exterior"],
+      "materialNotes": [
+        "La fibra básica de la ropa deportiva; ligera, resistente y de secado rápido.",
+        "Alta resistencia a la abrasión con un tacto suave y liso.",
+        "Comodidad natural; para chándales y ropa deportiva casual.",
+        "Un punto calado; ventilación donde más se suda.",
+        "Una superficie perchada y esponjosa; una capa ligera y cálida.",
+        "Un punto por urdimbre; mantiene la forma y no se carrera.",
+        "Fibras ultrafinas; tacto sedoso y alta absorción."
+      ],
+      "finishes": ["Acabado transpirable (wicking)", "Acabado antibacteriano", "Calidades con protección UV", "Opciones elásticas (elastano)"]
+    },
+    "fancy-outerwear": {
+      "structure": "Ligamentos dobby y teñidos en hilo",
+      "lead": "Superficies con carácter para las piezas protagonistas de una colección: tejidos de abrigo que destacan por su textura, su dibujo y su color.",
+      "body": [
+        "Los tejidos de fantasía para prendas de abrigo son los que hacen que una chaqueta o un abrigo llame la atención a primera vista. Las figuras dobby y los cuadros y rayas teñidos en hilo aportan profundidad y carácter incluso a un patrón sencillo.",
+        "En esta familia, la construcción importa tanto como el aspecto: el tejido debe funcionar con forro y entretela, mantener la forma en las costuras y resistir la intemperie. Definimos juntos la escala del dibujo y la paleta de color en torno a la historia de tu colección."
+      ],
+      "features": [
+        { "title": "Textura con carácter", "text": "Profundidad gracias a las figuras dobby y al juego de hilos de color." },
+        { "title": "Cuerpo", "text": "Un tacto lleno que sostiene la forma de chaquetas y abrigos." },
+        { "title": "Pensado para la colección", "text": "Escala de dibujo y paleta definidas en torno a la historia de la temporada." }
+      ],
+      "uses": ["Chaquetas y blazers", "Abrigos y gabardinas", "Sobrecamisas", "Chalecos", "Piezas de colección de diseño"],
+      "materialNotes": [
+        "Una superficie limpia para diseños en los que mandan el corte y los detalles.",
+        "Una superficie con textura enriquecida con pequeñas figuras geométricas.",
+        "Hilos teñidos antes de tejer; color profundo y duradero.",
+        "Cuadros, tartanes y rayas, clásicos o atrevidos.",
+        "Una mezcla que equilibra resistencia, tacto y caída."
+      ],
+      "finishes": ["Acabado hidrófugo (DWR)", "Superficie perchada", "Aspecto lavado", "Opciones de recubrimiento / laminado"]
+    },
+    "workwear": {
+      "structure": "Ligamentos gabardina, lona y oxford",
+      "lead": "Hechos para durar cada día y cada turno: tejidos de ropa de trabajo diseñados contra la abrasión, el lavado y las condiciones duras.",
+      "body": [
+        "En la ropa de trabajo, el tejido es una herramienta: debe soportar el roce, los lavados industriales frecuentes y las jornadas largas. Las estructuras tupidas de gabardina, lona y oxford aportan esa resistencia, mientras que el poliéster mantiene el color y la forma durante más tiempo.",
+        "Fábrica, servicios, sanidad, logística u hostelería: cada sector tiene necesidades distintas. Hablamos del entorno de trabajo, las condiciones de lavado y los colores corporativos, y elegimos juntos la calidad adecuada."
+      ],
+      "features": [
+        { "title": "Resistencia a la abrasión", "text": "Los ligamentos tupidos resisten más tiempo el roce y los desgarros." },
+        { "title": "Resistencia al lavado", "text": "Mantiene el color y la talla con lavados frecuentes a alta temperatura." },
+        { "title": "Color corporativo", "text": "Un color constante ajustado a tu marca, lote tras lote." }
+      ],
+      "uses": ["Monos y pantalones de trabajo", "Chaquetas y chalecos de trabajo", "Uniformes de personal y de servicio", "Delantales", "Ropa sanitaria y de hostelería"],
+      "materialNotes": [
+        "Resistencia y solidez del color; la columna vertebral de las mezclas.",
+        "Una sarga tupida; superficie lisa, buena caída y alta resistencia.",
+        "Un tafetán pesado; robusto y con cuerpo para un uso intensivo.",
+        "Un ligamento panamá; transpirable y duradero, para camisas y uniformes ligeros."
+      ],
+      "finishes": ["Acabado antimanchas e hidrófugo", "Calidades aptas para lavado industrial", "Opciones antiestáticas", "Acabado antiarrugas"]
+    }
+  }
+}

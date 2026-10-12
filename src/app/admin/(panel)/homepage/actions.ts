@@ -104,7 +104,15 @@ export async function saveHomepage(_prev: ActionState, fd: FormData): Promise<Ac
         image: img(fd, `story.steps.${i}.image`) ?? current.story?.steps[i]?.image ?? storyTexture,
       })),
     },
-    collections: { titleEn: str(fd, "collections.titleEn"), titleTr: str(fd, "collections.titleTr"), titleFr: str(fd, "collections.titleFr"), collectionSlugs: json<string[]>(fd, "collections.collectionSlugs", []) },
+    collections: {
+      titleEn: str(fd, "collections.titleEn"),
+      titleTr: str(fd, "collections.titleTr"),
+      titleFr: str(fd, "collections.titleFr"),
+      collectionSlugs: json<string[]>(fd, "collections.collectionSlugs", []),
+      covers: Object.fromEntries(
+        [...fd.keys()].filter((k) => k.startsWith("collections.covers.")).map((k) => [k.slice("collections.covers.".length), img(fd, k)]),
+      ),
+    },
     banner: {
       image: bannerImage,
       images: imgs(fd, "banner.images", current.banner?.images),
@@ -120,6 +128,20 @@ export async function saveHomepage(_prev: ActionState, fd: FormData): Promise<Ac
       ctaHref: str(fd, "banner.ctaHref") || "/contact",
     },
   };
+
+  // Spanish / Russian fields (hero.titleEs, story.steps.0.textRu…) go next to the other languages
+  for (const key of new Set(fd.keys())) {
+    const m = key.match(/^(\w+)\.(.+)(Es|Ru)$/);
+    if (!m || !(m[1] in sections)) continue;
+    const parts = m[2].split(".");
+    let target = sections[m[1] as keyof HomepageSections] as unknown as Record<string, unknown>;
+    for (const p of parts.slice(0, -1)) {
+      if (target[p] === undefined || target[p] === null) target[p] = {};
+      target = target[p] as Record<string, unknown>;
+    }
+    const field = `${parts.at(-1)}${m[3]}`;
+    target[field] = field.startsWith("items") ? lines(fd, key) : str(fd, key);
+  }
 
   await db.$transaction(
     HOMEPAGE_KEYS.map((key) =>

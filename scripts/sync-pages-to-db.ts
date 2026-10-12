@@ -31,12 +31,28 @@ async function main() {
   let written = 0;
   for (const [key, value] of Object.entries(PAGES)) {
     const data = JSON.parse(JSON.stringify(value)) as Prisma.InputJsonValue;
-    const exists = await db.pageContent.findUnique({ where: { key }, select: { key: true } });
-    if (exists && !force) continue;
+    const exists = await db.pageContent.findUnique({ where: { key } });
+    if (exists && !force) {
+      // Keep everything edited in the admin; only add what is missing (e.g. a newly added language)
+      const filled = addMissing(exists.data, data);
+      if (JSON.stringify(filled) !== JSON.stringify(exists.data)) {
+        await db.pageContent.update({ where: { key }, data: { data: filled as Prisma.InputJsonValue } });
+        written++;
+      }
+      continue;
+    }
     await db.pageContent.upsert({ where: { key }, create: { key, data }, update: { data } });
     written++;
   }
   console.log(`Pages in the database: ${Object.keys(PAGES).length} (${written} written${force ? ", forced" : ""}).`);
+}
+
+/** Saved copy with any keys it lacks taken from the defaults; arrays and set values are left alone. */
+function addMissing(saved: unknown, defaults: unknown): unknown {
+  if (!saved || typeof saved !== "object" || Array.isArray(saved) || !defaults || typeof defaults !== "object" || Array.isArray(defaults)) return saved;
+  const out: Record<string, unknown> = { ...(saved as Record<string, unknown>) };
+  for (const [k, v] of Object.entries(defaults as Record<string, unknown>)) out[k] = k in out ? addMissing(out[k], v) : v;
+  return out;
 }
 
 main().finally(() => db.$disconnect());

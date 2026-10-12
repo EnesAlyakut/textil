@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { Locale } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 
-export type MapLocation = { city: string; country: string; role: string; query: string; zoom: number; lang?: string };
+export type MapLocation = { city: string; country: string; role: string; query: string; zoom: number; lang?: string; address?: string };
 
 type Props = { locations: MapLocation[]; lang: Locale; openInMaps: string };
 
@@ -43,6 +43,7 @@ export function LocationsMap({ locations, lang, openInMaps }: Props) {
                   {l.country}
                 </span>
                 <span className={cn("mt-4 block text-sm leading-relaxed md:text-base", on ? "text-white/90" : "text-mist")}>{l.role}</span>
+                {l.address && <span className={cn("mt-2 block text-xs leading-relaxed md:text-[0.8rem]", on ? "text-white/75" : "text-ash")}>{l.address}</span>}
                 <span
                   aria-hidden
                   className={cn("absolute bottom-0 left-0 h-[2px] w-full origin-left bg-brand transition-transform duration-700", on ? "scale-x-0" : "scale-x-0 group-hover:scale-x-100")}

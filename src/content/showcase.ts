@@ -6,7 +6,7 @@ import type { Locale } from "@/i18n/config";
  */
 export type ShowcaseDefault = { name: string; description: string; color: string; material: string };
 
-export const SHOWCASE_DEFAULTS: Record<Locale, ShowcaseDefault[]> = {
+export const SHOWCASE_DEFAULTS: Record<Locale | "tr", ShowcaseDefault[]> = {
   tr: [
     { name: "Şehir Ritmi", description: "Gün boyu şehirde, akşam da aynı netlikte. Rahat kalıp, düzgün duruş.", color: "Toprak tonları", material: "Keten karışımı" },
     { name: "Sakin Güç", description: "Gösterişe ihtiyaç duymayan bir rahatlık. Sade kesim, güçlü bir ifade.", color: "Kum ve kahve", material: "Doğal keten" },
@@ -27,5 +27,19 @@ export const SHOWCASE_DEFAULTS: Record<Locale, ShowcaseDefault[]> = {
     { name: "Texture brute", description: "Surface délavée, coupe large — un ensemble au caractère propre.", color: "Bleu glacier", material: "Denim délavé" },
     { name: "Sa propre ligne", description: "Pensé non pour se fondre dans la foule, mais pour faire sentir la différence.", color: "Tons de nuit", material: "Maille et chaîne et trame" },
     { name: "De l’atelier", description: "De la première coupe au dernier point, fabriqué avec le même soin dans notre atelier.", color: "Palette neutre", material: "Coton mélangé" },
+  ],
+  es: [
+    { name: "Ritmo urbano", description: "Todo el día en la ciudad e igual de impecable por la noche. Corte holgado, línea limpia.", color: "Tonos tierra", material: "Mezcla de lino" },
+    { name: "Fuerza serena", description: "Una comodidad que no necesita alardes. Un corte sencillo con una expresión firme.", color: "Arena y marrón", material: "Lino natural" },
+    { name: "Textura cruda", description: "Superficie lavada, corte amplio: un conjunto con carácter propio.", color: "Azul hielo", material: "Denim lavado" },
+    { name: "Su propia línea", description: "Pensado no para mezclarse con la multitud, sino para que la diferencia se sienta.", color: "Tonos de noche", material: "Punto y tejido plano" },
+    { name: "Desde el taller", description: "Del primer corte a la última puntada, hecho con el mismo cuidado en nuestro propio taller.", color: "Paleta neutra", material: "Mezcla de algodón" },
+  ],
+  ru: [
+    { name: "Ритм города", description: "Весь день в городе и так же безупречно вечером. Свободный крой, чистая линия.", color: "Землистые тона", material: "Смесовый лён" },
+    { name: "Спокойная сила", description: "Комфорт, которому не нужна показность. Простой крой, сильное высказывание.", color: "Песочный и коричневый", material: "Натуральный лён" },
+    { name: "Сырая фактура", description: "Стираная поверхность, широкий крой — комплект со своим характером.", color: "Ледяной голубой", material: "Стираный деним" },
+    { name: "Своя линия", description: "Создано не для того, чтобы раствориться в толпе, а чтобы дать почувствовать разницу.", color: "Ночные тона", material: "Трикотаж и ткань" },
+    { name: "Из ателье", description: "От первого кроя до последнего стежка — с одинаковой заботой в нашем собственном ателье.", color: "Нейтральная палитра", material: "Смесовый хлопок" },
   ],
 };

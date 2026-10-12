@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "title": "Tejidos",
+    "description": "Tejidos para camisería, sastrería, ropa deportiva, prendas de abrigo de fantasía y ropa de trabajo: las familias de tejidos de confección de YEG Textile."
+  },
+  "eyebrow": "Tejidos",
+  "title": "Tejidos",
+  "lead": "De la camisería a la ropa deportiva, de las prendas de abrigo a la ropa de trabajo: 5 familias de tejidos.",
+  "groupsLabel": "Familias",
+  "countLabel": "familias de tejidos",
+  "materialsLabel": "Materiales",
+  "groups": [
+    {
+      "id": "apparel",
+      "label": "Confección",
+      "fabrics": [
+        {
+          "slug": "shirt",
+          "weave": "check",
+          "title": "Tejidos para camisas",
+          "materials": [
+            "Liso",
+            "Dobby",
+            "Teñido en hilo",
+            "Cuadros y rayas",
+            "Poliéster-algodón-viscosa"
+          ]
+        },
+        {
+          "slug": "suit-trouser",
+          "weave": "twill",
+          "title": "Tejidos para trajes y pantalones",
+          "materials": [
+            "Poliéster",
+            "Viscosa",
+            "Algodón"
+          ]
+        },
+        {
+          "slug": "sportswear",
+          "weave": "mesh",
+          "title": "Tejidos para ropa deportiva",
+          "materials": [
+            "Poliéster",
+            "Nailon",
+            "Algodón",
+            "Malla",
+            "Polar",
+            "Raschel",
+            "Microfibra"
+          ]
+        },
+        {
+          "slug": "fancy-outerwear",
+          "weave": "dobby",
+          "title": "Tejidos de fantasía para prendas de abrigo",
+          "materials": [
+            "Liso",
+            "Dobby",
+            "Teñido en hilo",
+            "Cuadros y rayas",
+            "Poliéster-algodón-viscosa"
+          ]
+        },
+        {
+          "slug": "workwear",
+          "weave": "canvas",
+          "title": "Tejidos para ropa de trabajo",
+          "materials": [
+            "Poliéster",
+            "Gabardina",
+            "Lona",
+            "Oxford"
+          ]
+        }
+      ]
+    }
+  ],
+  "interlude": {
+    "lockup": [
+      "FLAT.",
+      "HARD.",
+      "FINAL."
+    ],
+    "local": null,
+    "lastWordLabel": "Y la última palabra:",
+    "statement": "Colaboraciones a largo plazo basadas en una buena producción, una comunicación clara y la confianza."
+  },
+  "ctaTitle": "¿Necesitas una muestra?",
+  "ctaText": "Elijamos juntos el tejido adecuado para tu colección: contáctanos para muestras y precios.",
+  "cta": "Contáctanos"
+}

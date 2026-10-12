@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "title": "Producción",
+    "description": "Los más altos estándares de calidad y servicio en cada etapa, de la materia prima al producto terminado: corte Gerber, un equipo de costura experimentado, una red de producción en toda Türkiye y control de calidad propio."
+  },
+  "eyebrow": "Producción",
+  "title": "Nuestra fuerza productiva",
+  "lead": "De la materia prima al producto terminado: calidad en cada etapa.",
+  "hq": "Centro de producción",
+  "facts": [
+    {
+      "value": "30+",
+      "label": "Años fabricando"
+    },
+    {
+      "value": "50%",
+      "label": "Producción en tejidos lisos"
+    },
+    {
+      "value": "Gerber",
+      "label": "Sistema de corte"
+    },
+    {
+      "value": "4",
+      "label": "Etapas de control de calidad"
+    }
+  ],
+  "chapters": [
+    {
+      "image": "rawMaterial",
+      "title": "De la materia prima al producto terminado",
+      "text": "Garantizamos a nuestros clientes los más altos estándares de calidad y servicio en cada etapa de la producción, desde la materia prima hasta el producto terminado. Contamos con la tecnología más actual para ofrecer las mejores opciones y precios ventajosos, y ponemos especial empeño en mantener plazos de producción muy cortos. Todos los pasos, del diseño a la producción y la entrega, los gestiona con atención nuestro experimentado equipo, manteniendo siempre una comunicación sólida con nuestros clientes."
+    },
+    {
+      "image": "cutting",
+      "title": "Corte",
+      "text": "Nuestro departamento de corte utiliza Gerber para garantizar el máximo rendimiento y precisión. Como alrededor del 50% de nuestra producción son tejidos lisos, utilizamos motores manuales para asegurar un proceso sin defectos. Empleamos cortadoras de sistema totalmente automáticas para todo tipo de tejidos."
+    },
+    {
+      "image": "sewing",
+      "title": "Costura",
+      "text": "Gracias a nuestro gran número de operarios de costura experimentados, fabricamos productos duraderos y de alta calidad en el menor tiempo posible. Te sorprenderá ver cómo los tejidos lisos se transforman en poco tiempo en una gran variedad de productos."
+    },
+    {
+      "image": "craft",
+      "title": "Artesanía",
+      "text": "Como fabricante con más de 30 años de trayectoria, YEG es conocido por su impecable artesanía, incluso con tejidos muy delicados y estilos complejos. Nos enorgullece entregar trabajos únicos, aunque requieran una producción más laboriosa."
+    },
+    {
+      "image": "network",
+      "title": "Red de producción",
+      "text": "Contamos con un equipo de producción formado por sastres experimentados y con un número creciente de talleres subcontratados repartidos por toda Türkiye, cada uno especializado en un tipo de trabajo. Nuestro departamento de control de calidad realiza inspecciones periódicas en todos los talleres para asegurar que cada modelo coincide plenamente con las muestras de preproducción y con los estándares de calidad de YEG."
+    },
+    {
+      "image": "quality",
+      "title": "Control de calidad",
+      "text": "Nuestro sistema de control de calidad consta de varias etapas exhaustivas: inspección del tejido crudo y teñido, inspección del extendido y del corte, montaje del producto antes de la costura y una inspección final a cargo de un equipo de especialistas cualificados. Todas las etapas se realizan internamente para garantizar una supervisión y un control completos de los productos.",
+      "stages": [
+        "Inspección del tejido crudo y teñido",
+        "Inspección del extendido y del corte",
+        "Montaje del producto antes de la costura",
+        "Inspección final por especialistas"
+      ]
+    }
+  ],
+  "ctaTitle": "Produzcamos juntos",
+  "ctaText": "Demos vida a tu colección con el mismo cuidado, de la materia prima a la entrega.",
+  "cta": "Contáctanos"
+}

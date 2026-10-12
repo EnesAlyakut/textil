@@ -15,13 +15,14 @@
     "assets": "node scripts/process-brand-assets.mjs && tsx scripts/import-media-to-db.ts",
     "postinstall": "prisma generate",
     "media:import": "tsx scripts/import-media-to-db.ts",
-    "db:setup": "prisma db push && tsx prisma/seed.ts && tsx scripts/import-media-to-db.ts && tsx scripts/apply-fr.ts && tsx scripts/sync-pages-to-db.ts",
+    "db:setup": "prisma db push && tsx prisma/seed.ts && tsx scripts/import-media-to-db.ts && tsx scripts/apply-fr.ts && tsx scripts/sync-pages-to-db.ts && tsx scripts/apply-i18n.ts",
     "db:pages": "tsx scripts/sync-pages-to-db.ts",
     "db:fr": "tsx scripts/apply-fr.ts",
     "db:backup": "node scripts/db-backup.mjs",
     "db:restore": "node scripts/db-restore.mjs",
     "db:check": "tsx scripts/check-db.ts",
-    "tunnel": ".tools\\cloudflared.exe tunnel --url http://localhost:3000"
+    "tunnel": ".tools\\cloudflared.exe tunnel --url http://localhost:3000",
+    "db:i18n": "tsx scripts/apply-i18n.ts"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

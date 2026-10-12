@@ -6,6 +6,14 @@ import { MediaPicker } from "./MediaPicker";
 import { qualityNote, uploadFile } from "./media-client";
 import { cn } from "@/lib/utils";
 
+/** Caption field per site language */
+const ALT_LANGS = [
+  { key: "altEn", label: "EN", placeholder: "English caption" },
+  { key: "altEs", label: "ES", placeholder: "Texto alternativo" },
+  { key: "altRu", label: "RU", placeholder: "Подпись" },
+  { key: "altFr", label: "FR", placeholder: "Texte alternatif" },
+] as const;
+
 export type GalleryItem = {
   url: string;
   width: number;
@@ -14,6 +22,8 @@ export type GalleryItem = {
   altEn: string;
   altTr: string;
   altFr?: string;
+  altEs?: string;
+  altRu?: string;
   objectPosition: string;
   isPrimary: boolean;
 };
@@ -244,34 +254,18 @@ export function GalleryField({ name, initial, primary = true }: { name: string; 
                     </div>
                   </div>
 
-                  <div className="grid gap-2 sm:grid-cols-3">
-                    <div>
-                      <label className="text-[11px] text-ash block mb-1">Alt metin (EN)</label>
-                      <input
-                        className="admin-input text-xs"
-                        placeholder="English alt caption"
-                        value={it.altEn}
-                        onChange={(e) => patch(i, { altEn: e.target.value })}
-                      />
-                    </div>
-                    <div>
-                      <label className="text-[11px] text-ash block mb-1">Alt metin (TR)</label>
-                      <input
-                        className="admin-input text-xs"
-                        placeholder="Türkçe alt açıklama"
-                        value={it.altTr}
-                        onChange={(e) => patch(i, { altTr: e.target.value })}
-                      />
-                    </div>
-                    <div>
-                      <label className="text-[11px] text-ash block mb-1">Alt metin (FR)</label>
-                      <input
-                        className="admin-input text-xs"
-                        placeholder="Texte alternatif français"
-                        value={it.altFr ?? ""}
-                        onChange={(e) => patch(i, { altFr: e.target.value })}
-                      />
-                    </div>
+                  <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+                    {ALT_LANGS.map((l) => (
+                      <div key={l.key}>
+                        <label className="mb-1 block text-[11px] text-ash">Alt metin ({l.label})</label>
+                        <input
+                          className="admin-input text-xs"
+                          placeholder={l.placeholder}
+                          value={(it[l.key] as string | undefined) ?? ""}
+                          onChange={(e) => patch(i, { [l.key]: e.target.value } as Partial<GalleryItem>)}
+                        />
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

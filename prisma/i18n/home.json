@@ -1,0 +1,78 @@
+{
+  "es": {
+    "hero": { "title": "No es para\ntodos", "subtitle": "No es una compra, es una postura.", "ctaLabel": "Explorar la colección" },
+    "intro": {
+      "label": "¿Por qué YEG Textile?",
+      "title": "Hacemos la producción más fácil.",
+      "text": "Es difícil resumir bajo un solo título lo que aporta trabajar con YEG Textile.\nHay experiencia en producción, un equipo sólido en desarrollo de producto, capacidad para gestionar distintos grupos de producto, una red creciente de tejidos y aprovisionamiento, y operaciones internacionales.\nPero, junto a todo esto, para nosotros hay algo más sencillo:\nNo complicar el trabajo de la empresa con la que colaboramos,\nEntender bien la necesidad,\nAportar ideas cuando hacen falta,\nNo presentar nunca lo imposible como posible,\nBuscar una solución cuando surge un problema,\nHacer crecer el sistema a medida que crece el negocio.\nDe la primera idea a la entrega final, mantenemos el proceso claro, fiable y sin interrupciones."
+    },
+    "marquee": { "items": ["Fuerza", "Producción", "Identidad", "Coraje", "Global", "Postura", "Calidad", "Visión", "Confianza", "Innovación", "Carácter"] },
+    "featured": { "title": "Piezas seleccionadas" },
+    "statement": {
+      "eyebrow": "I+D",
+      "title": "Un buen producto empieza,\nen parte, con las preguntas adecuadas",
+      "text": "En el textil, desarrollar un nuevo producto puede ser tan sencillo como probar un tejido nuevo, o tan amplio como para replantear desde cero el método de producción.\nEn YEG Textile no entendemos la I+D solo como dar vida a un nuevo producto.\nEncontrar un tejido mejor, cambiar la forma de fabricar un producto existente, probar otra técnica de lavado, calcular un coste más preciso o encontrar una solución duradera a un problema de producción forman parte de este trabajo.\nPor eso la I+D no es una mesa aparte de la producción.\nEstá dentro de la producción.\nCada nuevo producto es también una oportunidad para aprender algo nuevo."
+    },
+    "showcase": [
+      { "name": "Ritmo urbano", "description": "Todo el día en la ciudad e igual de impecable por la noche. Corte holgado, línea limpia.", "color": "Tonos tierra", "material": "Mezcla de lino" },
+      { "name": "Fuerza serena", "description": "Una comodidad que no necesita alardes. Un corte sencillo con una expresión firme.", "color": "Arena y marrón", "material": "Lino natural" },
+      { "name": "Textura cruda", "description": "Superficie lavada, corte amplio: un conjunto con carácter propio.", "color": "Azul hielo", "material": "Denim lavado" },
+      { "name": "Su propia línea", "description": "Pensado no para mezclarse con la multitud, sino para que la diferencia se sienta.", "color": "Tonos de noche", "material": "Punto y tejido plano" },
+      { "name": "Desde el taller", "description": "Del primer corte a la última puntada, hecho con el mismo cuidado en nuestro propio taller.", "color": "Paleta neutra", "material": "Mezcla de algodón" }
+    ],
+    "lookbook": {
+      "title": "La campaña SS26",
+      "text": "Fotografiada entre el estudio y la ciudad de noche: todos los looks están en producción y disponibles para venta mayorista.",
+      "alts": ["Sudadera de punto con capucha — Marrón", "Camisa de flores — Crema", "Camisa con estampado de palmeras", "Chaqueta de punto acolchada — Mostaza", "Chaqueta de piel y denim ancho", "Abrigo de lana — Gris", "Camisa de cuadros — Pastel", "Chaqueta de punto acolchada — Cobalto"]
+    },
+    "story": {
+      "lines": ["De la idea", "Al tejido", "Al producto"],
+      "text": "Diseño, patronaje, muestras y producción conviven bajo un mismo techo. Cada decisión, del peso de un tejido a la caída de un cuello, la toman las mismas manos que aprueban la pieza final.",
+      "steps": [
+        { "title": "Diseño", "text": "Cada colección nace de una sola idea, depurada hasta que la silueta lo dice todo." },
+        { "title": "Tejido y patrón", "text": "Los tejidos se prueban internamente. Nuestros propios patronistas trazan y escalan los patrones." },
+        { "title": "Producción", "text": "Cortado, cosido, planchado e inspeccionado en Türkiye: series cortas, manos formadas, sin atajos." }
+      ]
+    },
+    "collections": { "title": "Cuatro historias, una sola mano" },
+    "banner": { "title": "Construyamos tu próxima colección", "text": "Producción de marca blanca, mayorista y bajo pedido para marcas que cuidan los detalles.", "ctaLabel": "Empezar una conversación" }
+  },
+  "ru": {
+    "hero": { "title": "Не для\nвсех", "subtitle": "Не покупка, а позиция.", "ctaLabel": "Смотреть коллекцию" },
+    "intro": {
+      "label": "Почему YEG Textile?",
+      "title": "Мы делаем производство проще.",
+      "text": "Сложно уместить в один заголовок то, что даёт работа с YEG Textile.\nЭто производственный опыт, сильная команда разработки продукции, умение работать с разными товарными группами, растущая сеть поставщиков тканей и международные операции.\nНо помимо всего этого для нас есть кое-что проще:\nНе усложнять работу компании, с которой мы сотрудничаем,\nПравильно понимать задачу,\nПредлагать идеи там, где они нужны,\nНикогда не выдавать невозможное за возможное,\nИскать решение, когда возникает проблема,\nРазвивать систему по мере роста бизнеса.\nОт первой идеи до финальной поставки мы делаем процесс ясным, надёжным и непрерывным."
+    },
+    "marquee": { "items": ["Сила", "Производство", "Идентичность", "Смелость", "Global", "Позиция", "Качество", "Видение", "Доверие", "Инновации", "Характер"] },
+    "featured": { "title": "Избранные изделия" },
+    "statement": {
+      "eyebrow": "НИОКР",
+      "title": "Хорошее изделие начинается\nво многом с правильных вопросов",
+      "text": "В текстиле разработка нового изделия может быть простой, как проба новой ткани, — или настолько масштабной, что придётся заново продумать метод производства.\nВ YEG Textile мы не считаем НИОКР лишь воплощением нового изделия.\nНайти лучшую ткань, изменить способ производства существующей модели, попробовать другую технологию стирки, точнее рассчитать себестоимость или найти долгосрочное решение производственной проблемы — всё это часть этой работы.\nПоэтому НИОКР — не отдельный стол рядом с производством.\nОн внутри производства.\nКаждое новое изделие — это ещё и возможность узнать что-то новое."
+    },
+    "showcase": [
+      { "name": "Ритм города", "description": "Весь день в городе и так же безупречно вечером. Свободный крой, чистая линия.", "color": "Землистые тона", "material": "Смесовый лён" },
+      { "name": "Спокойная сила", "description": "Комфорт, которому не нужна показность. Простой крой, сильное высказывание.", "color": "Песочный и коричневый", "material": "Натуральный лён" },
+      { "name": "Сырая фактура", "description": "Стираная поверхность, широкий крой — комплект со своим характером.", "color": "Ледяной голубой", "material": "Стираный деним" },
+      { "name": "Своя линия", "description": "Создано не для того, чтобы раствориться в толпе, а чтобы дать почувствовать разницу.", "color": "Ночные тона", "material": "Трикотаж и ткань" },
+      { "name": "Из ателье", "description": "От первого кроя до последнего стежка — с одинаковой заботой в нашем собственном ателье.", "color": "Нейтральная палитра", "material": "Смесовый хлопок" }
+    ],
+    "lookbook": {
+      "title": "Кампания SS26",
+      "text": "Снято между студией и ночным городом — все образы уже в производстве и доступны для оптовых заказов.",
+      "alts": ["Вязаное худи — Коричневый", "Рубашка с цветочным принтом — Кремовый", "Рубашка с принтом пальм", "Стёганая вязаная куртка — Горчичный", "Кожаная куртка и широкий деним", "Шерстяное пальто — Серый", "Рубашка в клетку — Пастель", "Стёганая вязаная куртка — Кобальт"]
+    },
+    "story": {
+      "lines": ["От идеи", "К ткани", "К изделию"],
+      "text": "Дизайн, конструирование, образцы и производство живут под одной крышей. Каждое решение — от плотности ткани до изгиба воротника — принимают те же руки, что утверждают готовое изделие.",
+      "steps": [
+        { "title": "Дизайн", "text": "Каждая коллекция начинается с одной идеи, которую мы доводим, пока силуэт не скажет всё сам." },
+        { "title": "Ткань и лекала", "text": "Ткани тестируются у нас. Лекала строят и градируют наши собственные конструкторы." },
+        { "title": "Производство", "text": "Раскроено, сшито, отглажено и проверено в Турции — малые партии, обученные руки, никаких упрощений." }
+      ]
+    },
+    "collections": { "title": "Четыре истории, одна рука" },
+    "banner": { "title": "Создадим вашу следующую коллекцию", "text": "Производство private label, оптом и под заказ для брендов, которым важны детали.", "ctaLabel": "Начать разговор" }
+  }
+}

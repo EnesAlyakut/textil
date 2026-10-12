@@ -83,7 +83,7 @@ export function BulkTable({ products, categories, collections, currency }: { pro
                   </td>
                   <td className="min-w-52">
                     <Link href={`/admin/products/${p.id}`} className="font-medium hover:text-brand">
-                      {p.nameTr}
+                      {p.nameEn}
                     </Link>
                     <p className="text-xs text-ash">
                       {p.code} · {p.nameEn}

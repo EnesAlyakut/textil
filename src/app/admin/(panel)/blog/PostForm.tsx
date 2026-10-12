@@ -4,7 +4,7 @@ import { GalleryField } from "@/components/admin/GalleryField";
 import { ImageField } from "@/components/admin/ImageField";
 import { readGallery } from "@/lib/queries";
 import { SlugInput } from "@/components/admin/SlugInput";
-import { Bilingual, Card, Checkbox, Field, Input, Select } from "@/components/admin/ui";
+import { Bilingual, Card, Checkbox, Field, Input, Select, lv } from "@/components/admin/ui";
 import { savePost } from "./actions";
 
 const FORMAT_HINT = "Biçimlendirme: boş satırla paragraf, '## ' ara başlık, '> ' alıntı, '- ' liste, **kalın**, *italik*, [bağlantı](https://…).";
@@ -17,16 +17,19 @@ export function PostForm({ post, categories }: { post?: Blog; categories: BlogCa
       <div className="grid gap-6 xl:grid-cols-[1fr_340px]">
         <div className="space-y-6">
           <Card title="Yazı">
-            <Bilingual label="Başlık *" name="title" en={post?.titleEn} tr={post?.titleTr} fr={post?.titleFr} required />
+            <Bilingual label="Başlık *" name="title" en={post?.titleEn} tr={post?.titleTr} fr={post?.titleFr} es={lv(post, "title", "es")} ru={lv(post, "title", "ru")} required />
             <SlugInput defaultValue={post?.slug} sourceName="titleEn" prefix="/blog/" />
-            <Bilingual label="Özet" name="excerpt" en={post?.excerptEn} tr={post?.excerptTr} fr={post?.excerptFr} textarea rows={3} hint="Liste sayfasında ve paylaşımlarda görünür." />
+            <Bilingual label="Özet" name="excerpt" en={post?.excerptEn} tr={post?.excerptTr} fr={post?.excerptFr} es={lv(post, "excerpt", "es")} ru={lv(post, "excerpt", "ru")} textarea rows={3} hint="Liste sayfasında ve paylaşımlarda görünür." />
           </Card>
           <Card title="İçerik (English) *">
             <textarea name="contentEn" defaultValue={post?.contentEn ?? ""} rows={18} required className="admin-input font-mono text-[0.8rem]" />
             <p className="admin-hint">{FORMAT_HINT}</p>
           </Card>
-          <Card title="İçerik (Türkçe) *">
-            <textarea name="contentTr" defaultValue={post?.contentTr ?? ""} rows={18} required className="admin-input font-mono text-[0.8rem]" />
+          <Card title="İçerik (Español)" description="Boş bırakılırsa İspanyolca sitede İngilizce içerik gösterilir.">
+            <textarea name="contentEs" defaultValue={lv(post, "content", "es")} rows={18} className="admin-input font-mono text-[0.8rem]" />
+          </Card>
+          <Card title="İçerik (Русский)" description="Boş bırakılırsa Rusça sitede İngilizce içerik gösterilir.">
+            <textarea name="contentRu" defaultValue={lv(post, "content", "ru")} rows={18} className="admin-input font-mono text-[0.8rem]" />
           </Card>
           <Card title="İçerik (Français)" description="Boş bırakılırsa Fransızca sitede İngilizce içerik gösterilir.">
             <textarea name="contentFr" defaultValue={post?.contentFr ?? ""} rows={18} className="admin-input font-mono text-[0.8rem]" />
@@ -43,8 +46,8 @@ export function PostForm({ post, categories }: { post?: Blog; categories: BlogCa
             <GalleryField primary={false} name="gallery" initial={(readGallery(post?.gallery ?? []).map((i) => ({ ...i, blurDataUrl: i.blurDataUrl ?? null, isPrimary: false })))} />
           </Card>
           <Card title="SEO">
-            <Bilingual label="SEO başlığı" name="seoTitle" en={post?.seoTitleEn} tr={post?.seoTitleTr} fr={post?.seoTitleFr} />
-            <Bilingual label="SEO açıklaması" name="seoDescription" en={post?.seoDescriptionEn} tr={post?.seoDescriptionTr} fr={post?.seoDescriptionFr} textarea rows={3} />
+            <Bilingual label="SEO başlığı" name="seoTitle" en={post?.seoTitleEn} tr={post?.seoTitleTr} fr={post?.seoTitleFr} es={lv(post, "seoTitle", "es")} ru={lv(post, "seoTitle", "ru")} />
+            <Bilingual label="SEO açıklaması" name="seoDescription" en={post?.seoDescriptionEn} tr={post?.seoDescriptionTr} fr={post?.seoDescriptionFr} es={lv(post, "seoDescription", "es")} ru={lv(post, "seoDescription", "ru")} textarea rows={3} />
           </Card>
         </div>
         <div className="space-y-6">
@@ -62,7 +65,7 @@ export function PostForm({ post, categories }: { post?: Blog; categories: BlogCa
                 <option value="">—</option>
                 {categories.map((c) => (
                   <option key={c.id} value={c.id}>
-                    {c.nameTr} / {c.nameEn}
+                    {c.nameEn}
                   </option>
                 ))}
               </Select>
